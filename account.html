@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#07100b">
+  <meta name="description" content="Your VOLTRIX account.">
+  <title>My Account — VOLTRIX</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .account-layout {
+      width: min(1100px, calc(100% - 30px));
+      margin: 30px auto 70px;
+    }
+
+    .account-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 26px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(0,255,156,.18);
+      border-radius: 20px;
+      background: rgba(0,255,156,.035);
+    }
+
+    .account-avatar {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--emerald);
+      border-radius: 18px;
+      color: var(--emerald);
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 0 0 20px rgba(0,255,156,.2);
+    }
+
+    .account-header h2 { font-size: 20px; }
+    .account-header p { margin-top: 4px; color: #8ca79c; font-size: 13px; }
+
+    .account-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .account-card {
+      padding: 22px;
+      border: 1px solid rgba(0,255,156,.1);
+      border-radius: 18px;
+      background: rgba(0,255,156,.025);
+      transition: .2s ease;
+    }
+
+    .account-card:hover {
+      border-color: rgba(0,255,156,.35);
+      box-shadow: 0 0 18px rgba(0,255,156,.08);
+    }
+
+    .account-card-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,255,156,.25);
+      border-radius: 12px;
+      color: var(--emerald);
+      background: rgba(0,255,156,.06);
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .account-card h3 { font-size: 15px; margin-bottom: 5px; }
+    .account-card p { color: #7f988e; font-size: 12px; line-height: 1.5; }
+
+    .account-card .account-card-count {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: rgba(0,255,156,.1);
+      color: var(--emerald);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .account-section-label {
+      margin: 34px 0 14px;
+      color: var(--emerald);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .account-list {
+      border: 1px solid rgba(0,255,156,.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .account-list-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(0,255,156,.08);
+      background: rgba(0,255,156,.015);
+    }
+
+    .account-list-item:last-child { border-bottom: none; }
+
+    .account-list-item span:first-child { color: var(--emerald); font-size: 16px; }
+
+    .account-list-item div { flex: 1; }
+
+    .account-list-item h4 { font-size: 13px; }
+    .account-list-item p { color: #7f988e; font-size: 11px; margin-top: 2px; }
+
+    .account-list-item b { color: #718d81; font-size: 16px; }
+
+    .logout-button {
+      margin-top: 26px;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,107,107,.3);
+      color: #ff8080;
+      background: rgba(255,107,107,.05);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 600px) {
+      .account-grid { grid-template-columns: 1fr; }
+      .account-header { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-logo">V</div>
+    <div class="loader-name">VOLT<span>RIX</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+
+  <aside class="side-nav" id="sideNav" aria-hidden="true">
+
+    <div class="side-nav-head">
+      <a href="index.html" class="side-logo">
+        <span class="side-logo-mark">V</span>
+        <span>VOLT<span>RIX</span></span>
+      </a>
+      <button type="button" class="close-nav" id="closeNav" aria-label="Close navigation">×</button>
+    </div>
+
+    <div class="nav-scroll">
+      <p class="nav-label">EXPLORE</p>
+      <a href="index.html" class="nav-link"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a href="gaming.html" class="nav-link"><span class="nav-icon">◈</span><span>Gaming Products</span></a>
+      <a href="mobiles.html" class="nav-link"><span class="nav-icon">▣</span><span>Mobile Products</span></a>
+      <a href="fashion.html" class="nav-link"><span class="nav-icon">◇</span><span>Printed T-Shirts</span></a>
+      <a href="electronics.html" class="nav-link"><span class="nav-icon">▱</span><span>Electronics</span></a>
+      <a href="deals.html" class="nav-link"><span class="nav-icon">%</span><span>Exclusive Deals</span></a>
+      <div class="nav-divider"></div>
+      <p class="nav-label">VOLTRIX</p>
+      <a href="about.html" class="nav-link"><span class="nav-icon">i</span><span>About Us</span></a>
+      <a href="updates.html" class="nav-link"><span class="nav-icon">↻</span><span>Updates</span></a>
+      <a href="javascript:void(0)" class="nav-link" id="rateUsLink"><span class="nav-icon">★</span><span>Rate Us</span></a>
+      <a href="social.html" class="nav-link"><span class="nav-icon">◎</span><span>Join Social Media</span></a>
+      <a href="https://fantovexhq.github.io/FantovexHQ-/" class="nav-link" target="_blank" rel="noopener"><span class="nav-icon">↗</span><span>Join Fantovex</span></a>
+      <div class="nav-divider"></div>
+      <p class="nav-label">ACCOUNT</p>
+      <a href="account.html" class="nav-link active"><span class="nav-icon">○</span><span>My Account</span></a>
+      <a href="cart.html" class="nav-link"><span class="nav-icon">🛒</span><span>My Cart</span><b class="nav-cart-count" id="navCartCount">0</b></a>
+    </div>
+
+    <div class="side-nav-footer">
+      <div class="nav-status-dot"></div>
+      <span>VOLTRIX is online</span>
+    </div>
+
+  </aside>
+
+
+  <header class="main-header">
+    <div class="header-left">
+      <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand" aria-label="VOLTRIX Home">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+    </div>
+
+    <form class="desktop-search" id="desktopSearchForm" autocomplete="off">
+      <span class="search-symbol">⌕</span>
+      <input type="search" id="desktopSearch" placeholder="Search products" aria-label="Search products">
+      <button type="button" id="desktopSearchClear" class="search-clear" aria-label="Clear search">×</button>
+    </form>
+
+    <div class="header-actions">
+      <a href="account.html" class="header-action" aria-label="Account"><span>♙</span><small>Account</small></a>
+      <a href="cart.html" class="header-action cart-action" aria-label="Cart">
+        <span>🛒</span><small>Cart</small>
+        <b class="header-cart-count" id="headerCartCount">0</b>
+      </a>
+    </div>
+  </header>
+
+
+  <section class="mobile-search-area">
+    <form class="mobile-search" id="mobileSearchForm" autocomplete="off">
+      <span>⌕</span>
+      <input type="search" id="mobileSearch" placeholder="Search products" aria-label="Search products">
+      <button type="submit" aria-label="Search">→</button>
+    </form>
+  </section>
+
+
+  <main>
+
+    <div class="account-layout">
+
+      <div class="account-header">
+        <div class="account-avatar">V</div>
+        <div>
+          <h2 id="accountGreeting">Welcome, VOLTRIX Shopper</h2>
+          <p id="accountSubtext">Manage your orders, cart and preferences</p>
+        </div>
+      </div>
+
+      <div class="account-grid">
+
+        <a href="#" class="account-card" id="profileCard">
+          <div class="account-card-icon">○</div>
+          <h3>Profile</h3>
+          <p>View and edit your personal details</p>
+        </a>
+
+        <a href="#" class="account-card" id="ordersCard">
+          <div class="account-card-icon">▤</div>
+          <h3>My Orders</h3>
+          <p>Track current and past orders</p>
+          <span class="account-card-count" id="ordersCount">0 orders</span>
+        </a>
+
+        <a href="#" class="account-card" id="wishlistCard">
+          <div class="account-card-icon">♡</div>
+          <h3>Saved Products</h3>
+          <p>Products you've added to your wishlist</p>
+          <span class="account-card-count" id="wishlistCount">0 saved</span>
+        </a>
+
+        <a href="cart.html" class="account-card">
+          <div class="account-card-icon">🛒</div>
+          <h3>My Cart</h3>
+          <p>Review items ready for checkout</p>
+          <span class="account-card-count" id="cartCountDisplay">0 items</span>
+        </a>
+
+        <a href="#" class="account-card" id="addressCard">
+          <div class="account-card-icon">●</div>
+          <h3>Delivery Address</h3>
+          <p id="addressPreview">No delivery location saved yet</p>
+        </a>
+
+        <a href="#" class="account-card" id="settingsCard">
+          <div class="account-card-icon">⚙</div>
+          <h3>Account Settings</h3>
+          <p>Notifications, preferences and privacy</p>
+        </a>
+
+      </div>
+
+      <p class="account-section-label">ACCOUNT</p>
+
+      <div class="account-list">
+
+        <div class="account-list-item">
+          <span>i</span>
+          <div>
+            <h4>About VOLTRIX</h4>
+            <p>Learn more about the marketplace</p>
+          </div>
+          <a href="about.html" style="color:inherit;"><b>›</b></a>
+        </div>
+
+        <div class="account-list-item">
+          <span>↻</span>
+          <div>
+            <h4>Updates</h4>
+            <p>Latest VOLTRIX news and releases</p>
+          </div>
+          <a href="updates.html" style="color:inherit;"><b>›</b></a>
+        </div>
+
+        <div class="account-list-item">
+          <span>★</span>
+          <div>
+            <h4>Rate VOLTRIX</h4>
+            <p>Tell us what you think</p>
+          </div>
+          <a href="javascript:void(0)" id="accountRateLink" style="color:inherit;"><b>›</b></a>
+        </div>
+
+      </div>
+
+      <button type="button" class="logout-button" id="logoutBtn">SIGN OUT</button>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a href="index.html" class="brand footer-logo">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+      <p>Shop beyond limits.</p>
+    </div>
+    <div class="footer-column">
+      <h3>SHOP</h3>
+      <a href="gaming.html">Gaming</a><a href="mobiles.html">Mobiles</a>
+      <a href="electronics.html">Electronics</a><a href="fashion.html">Fashion</a>
+    </div>
+    <div class="footer-column">
+      <h3>VOLTRIX</h3>
+      <a href="about.html">About Us</a><a href="updates.html">Updates</a>
+      <a href="social.html">Social Media</a><a href="deals.html">Deals</a>
+    </div>
+    <div class="footer-column">
+      <h3>ACCOUNT</h3>
+      <a href="account.html">My Account</a><a href="cart.html">My Cart</a>
+      <a href="categories.html">Categories</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VOLTRIX</span>
+      <span>SHOP BEYOND LIMITS</span>
+    </div>
+  </footer>
+
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item"><span class="bottom-icon">⌂</span><span>Home</span></a>
+    <a href="categories.html" class="bottom-nav-item"><span class="bottom-icon">▦</span><span>Categories</span></a>
+    <a href="account.html" class="bottom-nav-item active"><span class="bottom-icon">♙</span><span>Account</span></a>
+    <a href="cart.html" class="bottom-nav-item bottom-cart"><span class="bottom-icon">🛒<b id="bottomCartCount">0</b></span><span>Cart</span></a>
+  </nav>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script src="script.js"></script>
+
+  <!-- PAGE-SPECIFIC: populate account counts from localStorage,
+       since there's no real auth/backend yet -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      if (!window.VOLTRIX) return;
+
+      // Wishlist count
+      const wishlist = window.VOLTRIX.getWishlist();
+      const wishlistCount = document.getElementById("wishlistCount");
+      if (wishlistCount) {
+        wishlistCount.textContent = `${wishlist.length} saved`;
+      }
+
+      // Cart count
+      const cartCount = window.VOLTRIX.getCartCount();
+      const cartCountDisplay = document.getElementById("cartCountDisplay");
+      if (cartCountDisplay) {
+        cartCountDisplay.textContent = `${cartCount} item${cartCount === 1 ? "" : "s"}`;
+      }
+
+      // Saved delivery location
+      const savedLocation = localStorage.getItem("voltrix_location");
+      const addressPreview = document.getElementById("addressPreview");
+      if (addressPreview && savedLocation) {
+        addressPreview.textContent = `Delivering to ${savedLocation}`;
+      }
+
+      // Rate us — reuse the same prompt flow as the side nav
+      const rateLink = document.getElementById("accountRateLink");
+      if (rateLink) {
+        rateLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          document.getElementById("rateUsLink").click();
+        });
+      }
+
+      // Orders / Profile / Settings — no backend yet, so these are
+      // honest placeholders rather than fake data
+      ["ordersCard", "profileCard", "addressCard", "settingsCard"].forEach(id => {
+        const card = document.getElementById(id);
+        if (card) {
+          card.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.VOLTRIX.showToast("This isn't connected to an account system yet ⚡");
+          });
+        }
+      });
+
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          window.VOLTRIX.showToast("No account is signed in yet ⚡");
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
