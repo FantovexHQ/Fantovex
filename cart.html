@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#07100b">
+  <meta name="description" content="Your VOLTRIX shopping cart.">
+  <title>My Cart — VOLTRIX</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 24px;
+      width: min(1100px, calc(100% - 30px));
+      margin: 40px auto 70px;
+      align-items: start;
+    }
+
+    .cart-items { display: grid; gap: 14px; }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid rgba(0,255,156,.1);
+      border-radius: 16px;
+      background: rgba(0,255,156,.025);
+    }
+
+    .cart-item-image {
+      width: 90px;
+      height: 90px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0,255,156,.25);
+      border-radius: 14px;
+      color: var(--emerald);
+      background: rgba(0,255,156,.05);
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .cart-item-info h3 { font-size: 15px; }
+
+    .cart-item-info .product-category { font-size: 8px; }
+
+    .cart-item-price {
+      margin-top: 6px;
+      color: white;
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .cart-qty-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(0,255,156,.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .cart-qty-control button {
+      width: 32px;
+      height: 32px;
+      border: 0;
+      background: rgba(0,255,156,.05);
+      color: var(--emerald);
+      font-weight: 900;
+    }
+
+    .cart-qty-control span {
+      min-width: 30px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .cart-remove-btn {
+      border: 0;
+      background: transparent;
+      color: #8ca79c;
+      font-size: 11px;
+      text-decoration: underline;
+    }
+
+    .cart-remove-btn:hover { color: #ff6b6b; }
+
+    .cart-summary {
+      position: sticky;
+      top: 90px;
+      padding: 24px;
+      border: 1px solid rgba(0,255,156,.18);
+      border-radius: 20px;
+      background: rgba(0,255,156,.035);
+    }
+
+    .cart-summary h2 { font-size: 20px; margin-bottom: 18px; }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      color: #9cb7ab;
+      font-size: 13px;
+    }
+
+    .cart-summary-row.total {
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0,255,156,.15);
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .cart-summary .primary-button {
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .cart-empty {
+      width: min(500px, calc(100% - 30px));
+      margin: 90px auto;
+      text-align: center;
+      color: #9cb7ab;
+    }
+
+    .cart-empty h2 { color: white; margin-bottom: 10px; }
+    .cart-empty .primary-button { margin-top: 20px; display: inline-flex; }
+
+    @media (max-width: 850px) {
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-item { grid-template-columns: 70px 1fr; }
+      .cart-item-controls { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; }
+      .cart-summary { position: static; }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-logo">V</div>
+    <div class="loader-name">VOLT<span>RIX</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+
+  <aside class="side-nav" id="sideNav" aria-hidden="true">
+
+    <div class="side-nav-head">
+      <a href="index.html" class="side-logo">
+        <span class="side-logo-mark">V</span>
+        <span>VOLT<span>RIX</span></span>
+      </a>
+      <button type="button" class="close-nav" id="closeNav" aria-label="Close navigation">×</button>
+    </div>
+
+    <div class="nav-scroll">
+      <p class="nav-label">EXPLORE</p>
+      <a href="index.html" class="nav-link"><span class="nav-icon">⌂</span><span>Home</span></a>
+      <a href="gaming.html" class="nav-link"><span class="nav-icon">◈</span><span>Gaming Products</span></a>
+      <a href="mobiles.html" class="nav-link"><span class="nav-icon">▣</span><span>Mobile Products</span></a>
+      <a href="fashion.html" class="nav-link"><span class="nav-icon">◇</span><span>Printed T-Shirts</span></a>
+      <a href="electronics.html" class="nav-link"><span class="nav-icon">▱</span><span>Electronics</span></a>
+      <a href="deals.html" class="nav-link"><span class="nav-icon">%</span><span>Exclusive Deals</span></a>
+      <div class="nav-divider"></div>
+      <p class="nav-label">VOLTRIX</p>
+      <a href="about.html" class="nav-link"><span class="nav-icon">i</span><span>About Us</span></a>
+      <a href="updates.html" class="nav-link"><span class="nav-icon">↻</span><span>Updates</span></a>
+      <a href="javascript:void(0)" class="nav-link" id="rateUsLink"><span class="nav-icon">★</span><span>Rate Us</span></a>
+      <a href="social.html" class="nav-link"><span class="nav-icon">◎</span><span>Join Social Media</span></a>
+      <a href="https://fantovexhq.github.io/FantovexHQ-/" class="nav-link" target="_blank" rel="noopener"><span class="nav-icon">↗</span><span>Join Fantovex</span></a>
+      <div class="nav-divider"></div>
+      <p class="nav-label">ACCOUNT</p>
+      <a href="account.html" class="nav-link"><span class="nav-icon">○</span><span>My Account</span></a>
+      <a href="cart.html" class="nav-link active"><span class="nav-icon">🛒</span><span>My Cart</span><b class="nav-cart-count" id="navCartCount">0</b></a>
+    </div>
+
+    <div class="side-nav-footer">
+      <div class="nav-status-dot"></div>
+      <span>VOLTRIX is online</span>
+    </div>
+
+  </aside>
+
+
+  <header class="main-header">
+    <div class="header-left">
+      <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand" aria-label="VOLTRIX Home">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+    </div>
+
+    <form class="desktop-search" id="desktopSearchForm" autocomplete="off">
+      <span class="search-symbol">⌕</span>
+      <input type="search" id="desktopSearch" placeholder="Search products" aria-label="Search products">
+      <button type="button" id="desktopSearchClear" class="search-clear" aria-label="Clear search">×</button>
+    </form>
+
+    <div class="header-actions">
+      <a href="account.html" class="header-action" aria-label="Account"><span>♙</span><small>Account</small></a>
+      <a href="cart.html" class="header-action cart-action" aria-label="Cart">
+        <span>🛒</span><small>Cart</small>
+        <b class="header-cart-count" id="headerCartCount">0</b>
+      </a>
+    </div>
+  </header>
+
+
+  <section class="mobile-search-area">
+    <form class="mobile-search" id="mobileSearchForm" autocomplete="off">
+      <span>⌕</span>
+      <input type="search" id="mobileSearch" placeholder="Search products" aria-label="Search products">
+      <button type="submit" aria-label="Search">→</button>
+    </form>
+  </section>
+
+
+  <main>
+
+    <section class="section" style="padding-bottom: 0;">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">YOUR CART</span>
+          <h2>My Cart</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rendered by inline script below -->
+    <div id="cartContainer"></div>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a href="index.html" class="brand footer-logo">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+      <p>Shop beyond limits.</p>
+    </div>
+    <div class="footer-column">
+      <h3>SHOP</h3>
+      <a href="gaming.html">Gaming</a><a href="mobiles.html">Mobiles</a>
+      <a href="electronics.html">Electronics</a><a href="fashion.html">Fashion</a>
+    </div>
+    <div class="footer-column">
+      <h3>VOLTRIX</h3>
+      <a href="about.html">About Us</a><a href="updates.html">Updates</a>
+      <a href="social.html">Social Media</a><a href="deals.html">Deals</a>
+    </div>
+    <div class="footer-column">
+      <h3>ACCOUNT</h3>
+      <a href="account.html">My Account</a><a href="cart.html">My Cart</a>
+      <a href="categories.html">Categories</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VOLTRIX</span>
+      <span>SHOP BEYOND LIMITS</span>
+    </div>
+  </footer>
+
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item"><span class="bottom-icon">⌂</span><span>Home</span></a>
+    <a href="categories.html" class="bottom-nav-item"><span class="bottom-icon">▦</span><span>Categories</span></a>
+    <a href="account.html" class="bottom-nav-item"><span class="bottom-icon">♙</span><span>Account</span></a>
+    <a href="cart.html" class="bottom-nav-item bottom-cart active"><span class="bottom-icon">🛒<b id="bottomCartCount">0</b></span><span>Cart</span></a>
+  </nav>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script src="script.js"></script>
+
+  <!-- PAGE-SPECIFIC: render the full cart, quantities, subtotal, total -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const container = document.getElementById("cartContainer");
+      if (!container || !window.VOLTRIX) return;
+
+      const DELIVERY_FEE = 49;
+      const FREE_DELIVERY_THRESHOLD = 999;
+
+      function render() {
+        const cart = window.VOLTRIX.getCart();
+
+        const items = cart
+          .map(entry => {
+            const product = window.VOLTRIX.getProduct(entry.id);
+            return product ? { product, quantity: entry.quantity } : null;
+          })
+          .filter(Boolean);
+
+        if (items.length === 0) {
+          container.innerHTML = `
+            <div class="cart-empty">
+              <h2>Your cart is empty</h2>
+              <p>Looks like you haven't added anything yet.</p>
+              <a href="index.html" class="primary-button">CONTINUE SHOPPING →</a>
+            </div>
+          `;
+          return;
+        }
+
+        const subtotal = items.reduce(
+          (sum, item) => sum + item.product.price * item.quantity,
+          0
+        );
+
+        const delivery = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
+        const total = subtotal + delivery;
+
+        const itemsHTML = items.map(item => {
+          const placeholder = item.product.name
+            .split(" ")
+            .map(w => w.charAt(0))
+            .slice(0, 2)
+            .join("");
+
+          return `
+            <div class="cart-item" data-id="${item.product.id}">
+
+              <a href="product.html?id=${item.product.id}" class="cart-item-image">${placeholder}</a>
+
+              <div class="cart-item-info">
+                <span class="product-category">${item.product.category.toUpperCase()}</span>
+                <a href="product.html?id=${item.product.id}"><h3>${item.product.name}</h3></a>
+                <div class="cart-item-price">₹${item.product.price.toLocaleString("en-IN")}</div>
+              </div>
+
+              <div class="cart-item-controls">
+                <div class="cart-qty-control">
+                  <button type="button" class="qty-minus" aria-label="Decrease quantity">−</button>
+                  <span>${item.quantity}</span>
+                  <button type="button" class="qty-plus" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="cart-remove-btn">Remove</button>
+              </div>
+
+            </div>
+          `;
+        }).join("");
+
+        container.innerHTML = `
+          <div class="cart-layout">
+
+            <div class="cart-items">${itemsHTML}</div>
+
+            <div class="cart-summary">
+              <h2>Order Summary</h2>
+
+              <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span>₹${subtotal.toLocaleString("en-IN")}</span>
+              </div>
+
+              <div class="cart-summary-row">
+                <span>Delivery</span>
+                <span>${delivery === 0 ? "FREE" : "₹" + delivery}</span>
+              </div>
+
+              ${delivery > 0
+                ? `<div class="cart-summary-row"><span></span><span style="color:var(--emerald); font-size:11px;">Free delivery on orders over ₹${FREE_DELIVERY_THRESHOLD}</span></div>`
+                : ""
+              }
+
+              <div class="cart-summary-row total">
+                <span>Total</span>
+                <span>₹${total.toLocaleString("en-IN")}</span>
+              </div>
+
+              <button type="button" class="primary-button" id="checkoutBtn">CHECKOUT →</button>
+            </div>
+
+          </div>
+        `;
+
+        // Wire up quantity + remove controls
+        container.querySelectorAll(".cart-item").forEach(row => {
+          const id = Number(row.dataset.id);
+
+          row.querySelector(".qty-plus").addEventListener("click", () => {
+            const cart = window.VOLTRIX.getCart();
+            const item = cart.find(i => i.id === id);
+            if (item) {
+              window.VOLTRIX.updateCartQuantity(id, item.quantity + 1);
+              render();
+            }
+          });
+
+          row.querySelector(".qty-minus").addEventListener("click", () => {
+            const cart = window.VOLTRIX.getCart();
+            const item = cart.find(i => i.id === id);
+            if (item) {
+              if (item.quantity <= 1) {
+                window.VOLTRIX.removeFromCart(id);
+              } else {
+                window.VOLTRIX.updateCartQuantity(id, item.quantity - 1);
+              }
+              render();
+            }
+          });
+
+          row.querySelector(".cart-remove-btn").addEventListener("click", () => {
+            window.VOLTRIX.removeFromCart(id);
+            window.VOLTRIX.showToast("Removed from cart");
+            render();
+          });
+        });
+
+        const checkoutBtn = document.getElementById("checkoutBtn");
+        if (checkoutBtn) {
+          checkoutBtn.addEventListener("click", () => {
+            window.VOLTRIX.showToast("Checkout isn't connected to payments yet ⚡");
+          });
+        }
+      }
+
+      render();
+
+    });
+  </script>
+
+</body>
+</html>
