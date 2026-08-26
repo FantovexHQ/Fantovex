@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta
+    name="theme-color"
+    content="#07100b"
+  >
+
+  <meta
+    name="description"
+    content="VOLTRIX Gaming — controllers, headsets, RGB gear and accessories for your setup."
+  >
+
+  <title>Gaming — VOLTRIX</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-logo">V</div>
+    <div class="loader-name">VOLT<span>RIX</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+
+  <aside class="side-nav" id="sideNav" aria-hidden="true">
+
+    <div class="side-nav-head">
+      <a href="index.html" class="side-logo">
+        <span class="side-logo-mark">V</span>
+        <span>VOLT<span>RIX</span></span>
+      </a>
+      <button type="button" class="close-nav" id="closeNav" aria-label="Close navigation">×</button>
+    </div>
+
+    <div class="nav-scroll">
+
+      <p class="nav-label">EXPLORE</p>
+
+      <a href="index.html" class="nav-link">
+        <span class="nav-icon">⌂</span><span>Home</span>
+      </a>
+
+      <a href="gaming.html" class="nav-link active">
+        <span class="nav-icon">◈</span><span>Gaming Products</span>
+      </a>
+
+      <a href="mobiles.html" class="nav-link">
+        <span class="nav-icon">▣</span><span>Mobile Products</span>
+      </a>
+
+      <a href="fashion.html" class="nav-link">
+        <span class="nav-icon">◇</span><span>Printed T-Shirts</span>
+      </a>
+
+      <a href="electronics.html" class="nav-link">
+        <span class="nav-icon">▱</span><span>Electronics</span>
+      </a>
+
+      <a href="deals.html" class="nav-link">
+        <span class="nav-icon">%</span><span>Exclusive Deals</span>
+      </a>
+
+      <div class="nav-divider"></div>
+
+      <p class="nav-label">VOLTRIX</p>
+
+      <a href="about.html" class="nav-link">
+        <span class="nav-icon">i</span><span>About Us</span>
+      </a>
+
+      <a href="updates.html" class="nav-link">
+        <span class="nav-icon">↻</span><span>Updates</span>
+      </a>
+
+      <a href="javascript:void(0)" class="nav-link" id="rateUsLink">
+        <span class="nav-icon">★</span><span>Rate Us</span>
+      </a>
+
+      <a href="social.html" class="nav-link">
+        <span class="nav-icon">◎</span><span>Join Social Media</span>
+      </a>
+
+      <a href="https://fantovexhq.github.io/FantovexHQ-/" class="nav-link" target="_blank" rel="noopener">
+        <span class="nav-icon">↗</span><span>Join Fantovex</span>
+      </a>
+
+      <div class="nav-divider"></div>
+
+      <p class="nav-label">ACCOUNT</p>
+
+      <a href="account.html" class="nav-link">
+        <span class="nav-icon">○</span><span>My Account</span>
+      </a>
+
+      <a href="cart.html" class="nav-link">
+        <span class="nav-icon">🛒</span><span>My Cart</span>
+        <b class="nav-cart-count" id="navCartCount">0</b>
+      </a>
+
+    </div>
+
+    <div class="side-nav-footer">
+      <div class="nav-status-dot"></div>
+      <span>VOLTRIX is online</span>
+    </div>
+
+  </aside>
+
+
+  <header class="main-header">
+
+    <div class="header-left">
+
+      <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="brand" aria-label="VOLTRIX Home">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+
+    </div>
+
+    <form class="desktop-search" id="desktopSearchForm" autocomplete="off">
+      <span class="search-symbol">⌕</span>
+      <input type="search" id="desktopSearch" placeholder="Search gaming gear" aria-label="Search products">
+      <button type="button" id="desktopSearchClear" class="search-clear" aria-label="Clear search">×</button>
+    </form>
+
+    <div class="header-actions">
+
+      <a href="account.html" class="header-action" aria-label="Account">
+        <span>♙</span><small>Account</small>
+      </a>
+
+      <a href="cart.html" class="header-action cart-action" aria-label="Cart">
+        <span>🛒</span><small>Cart</small>
+        <b class="header-cart-count" id="headerCartCount">0</b>
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <section class="mobile-search-area">
+    <form class="mobile-search" id="mobileSearchForm" autocomplete="off">
+      <span>⌕</span>
+      <input type="search" id="mobileSearch" placeholder="Search gaming gear" aria-label="Search products">
+      <button type="submit" aria-label="Search">→</button>
+    </form>
+  </section>
+
+
+  <section class="location-bar">
+    <div class="location-inner">
+      <span class="location-icon">●</span>
+      <span class="location-text">Delivery location</span>
+      <button type="button" id="locationButton">Select location<span>›</span></button>
+    </div>
+  </section>
+
+
+  <section class="category-strip">
+    <div class="category-scroll">
+
+      <a href="index.html" class="quick-category">
+        <div class="quick-category-icon">✦</div><span>For You</span>
+      </a>
+
+      <a href="gaming.html" class="quick-category active">
+        <div class="quick-category-icon">◈</div><span>Gaming</span>
+      </a>
+
+      <a href="mobiles.html" class="quick-category">
+        <div class="quick-category-icon">▣</div><span>Mobiles</span>
+      </a>
+
+      <a href="electronics.html" class="quick-category">
+        <div class="quick-category-icon">▱</div><span>Electronics</span>
+      </a>
+
+      <a href="fashion.html" class="quick-category">
+        <div class="quick-category-icon">◇</div><span>Fashion</span>
+      </a>
+
+      <a href="beauty.html" class="quick-category">
+        <div class="quick-category-icon">✧</div><span>Beauty</span>
+      </a>
+
+      <a href="accessories.html" class="quick-category">
+        <div class="quick-category-icon">◎</div><span>Accessories</span>
+      </a>
+
+      <a href="deals.html" class="quick-category">
+        <div class="quick-category-icon">%</div><span>Deals</span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <main>
+
+    <!-- GAMING HERO -->
+    <section class="hero-section" style="min-height: 320px;">
+      <div class="hero-content">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">VOLTRIX GAMING</span>
+          <h1 class="gaming-title">PERFORMANCE <span>GEAR</span></h1>
+          <p>Controllers, headsets, keyboards, mice and RGB setups built for serious play.</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-glow"></div>
+          <div class="hero-ring ring-one"></div>
+          <div class="hero-ring ring-two"></div>
+          <div class="hero-product">
+            <div class="hero-product-v">◈</div>
+            <span>GAMING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FILTER / SORT -->
+    <section class="section" style="padding-top: 0;">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker gaming-kicker"><span class="pulse-dot"></span> HIGH PERFORMANCE</span>
+          <h2 class="gaming-title">GAMING <span>GEAR</span></h2>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 20px;">
+        <button type="button" class="quick-category active" data-filter="all" style="min-width:auto; padding:8px 16px; flex-direction:row; gap:6px;">All</button>
+        <button type="button" class="quick-category" data-filter="controllers" style="min-width:auto; padding:8px 16px; flex-direction:row; gap:6px;">Controllers</button>
+        <button type="button" class="quick-category" data-filter="headsets" style="min-width:auto; padding:8px 16px; flex-direction:row; gap:6px;">Headsets</button>
+        <button type="button" class="quick-category" data-filter="setup" style="min-width:auto; padding:8px 16px; flex-direction:row; gap:6px;">RGB Setup</button>
+      </div>
+
+      <!-- Gaming product grid — populated by script.js -->
+      <div class="gaming-grid" id="gamingGrid"></div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <div class="footer-brand">
+      <a href="index.html" class="brand footer-logo">
+        <span class="brand-mark">V</span>
+        <span class="brand-name">VOLT<span>RIX</span></span>
+      </a>
+      <p>Shop beyond limits.</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>SHOP</h3>
+      <a href="gaming.html">Gaming</a>
+      <a href="mobiles.html">Mobiles</a>
+      <a href="electronics.html">Electronics</a>
+      <a href="fashion.html">Fashion</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>VOLTRIX</h3>
+      <a href="about.html">About Us</a>
+      <a href="updates.html">Updates</a>
+      <a href="social.html">Social Media</a>
+      <a href="deals.html">Deals</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>ACCOUNT</h3>
+      <a href="account.html">My Account</a>
+      <a href="cart.html">My Cart</a>
+      <a href="categories.html">Categories</a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 VOLTRIX</span>
+      <span>SHOP BEYOND LIMITS</span>
+    </div>
+
+  </footer>
+
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <span class="bottom-icon">⌂</span><span>Home</span>
+    </a>
+    <a href="categories.html" class="bottom-nav-item">
+      <span class="bottom-icon">▦</span><span>Categories</span>
+    </a>
+    <a href="account.html" class="bottom-nav-item">
+      <span class="bottom-icon">♙</span><span>Account</span>
+    </a>
+    <a href="cart.html" class="bottom-nav-item bottom-cart">
+      <span class="bottom-icon">🛒<b id="bottomCartCount">0</b></span><span>Cart</span>
+    </a>
+  </nav>
+
+
+  <div class="modal" id="locationModal" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="modal-close" data-close-modal>×</button>
+      <span class="modal-kicker">DELIVERY</span>
+      <h2>Where should we deliver?</h2>
+      <p>Enter your pincode to check delivery availability.</p>
+      <form id="locationForm">
+        <input type="text" id="locationPincode" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit pincode" required>
+        <button type="submit" class="primary-button">CHECK DELIVERY</button>
+      </form>
+      <div class="modal-message" id="locationMessage"></div>
+    </div>
+  </div>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+  <script src="script.js"></script>
+
+  <!-- PAGE-SPECIFIC: render + filter the gaming grid -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const grid = document.getElementById("gamingGrid");
+      if (!grid || !window.VOLTRIX) return;
+
+      // Pull all Gaming category products from the shared database
+      function getGamingProducts() {
+        return window.VOLTRIX.products.filter(p => p.category === "Gaming");
+      }
+
+      function renderGamingGrid(products) {
+        grid.innerHTML = products.map(product => {
+          const discount = product.oldPrice
+            ? Math.round((1 - product.price / product.oldPrice) * 100)
+            : 0;
+
+          const placeholder = product.name
+            .split(" ")
+            .map(w => w.charAt(0))
+            .slice(0, 2)
+            .join("");
+
+          return `
+            <div class="gaming-card" data-product-id="${product.id}">
+              <div class="gaming-card-border"></div>
+              <a href="product.html?id=${product.id}" class="gaming-image-wrap">
+                ${product.badge ? `<span class="gaming-badge${product.badge === 'SALE' ? ' sale' : ''}">${product.badge}</span>` : ""}
+                <div class="gaming-placeholder">${placeholder}</div>
+              </a>
+              <div class="gaming-info">
+                <span class="gaming-cat">${product.category.toUpperCase()}</span>
+                <a href="product.html?id=${product.id}"><h3>${product.name}</h3></a>
+                <div class="gaming-rating">★ ${product.rating} <small>(${product.reviews})</small></div>
+                <div class="gaming-price-row">
+                  <div class="gaming-price">
+                    ₹${product.price.toLocaleString("en-IN")}
+                    ${product.oldPrice ? `<del>₹${product.oldPrice.toLocaleString("en-IN")}</del>` : ""}
+                  </div>
+                  <button type="button" class="gaming-add-btn" data-add-cart="${product.id}" aria-label="Add to cart">+</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      renderGamingGrid(getGamingProducts());
+
+      // Simple filter buttons (placeholder — currently all VOLTRIX gaming
+      // products render for every filter until sub-categories are added
+      // to the product database)
+      document.querySelectorAll("[data-filter]").forEach(button => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll("[data-filter]").forEach(b => b.classList.remove("active"));
+          button.classList.add("active");
+          renderGamingGrid(getGamingProducts());
+        });
+      });
+
+    });
+  </script>
+
+</body>
+</html>
