@@ -1,1523 +1,1895 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  >
+    <meta charset="UTF-8">
 
-  <meta
-    name="theme-color"
-    content="#07100b"
-  >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-  <meta
-    name="description"
-    content="VOLTRIX — Discover quality products, gaming gear, electronics, accessories and more."
-  >
+    <meta
+        name="theme-color"
+        content="#020605"
+    >
 
-  <title>VOLTRIX — Shop Beyond Limits</title>
+    <meta
+        name="description"
+        content="VOLTRIX — Shop Smart. Live Better."
+    >
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+    <title>VOLTRIX — Shop Smart • Live Better</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 
 <body>
 
-  <!-- =====================================================
-       PAGE LOADER
-  ====================================================== -->
 
-  <div
-    class="page-loader"
-    id="pageLoader"
-    aria-hidden="true"
-  >
+<!-- =====================================================
+     PARTICLE BACKGROUND
+===================================================== -->
 
-    <div class="loader-logo">
-      V
-    </div>
-
-    <div class="loader-name">
-      VOLT<span>RIX</span>
-    </div>
-
-    <div class="loader-line">
-      <span></span>
-    </div>
-
-  </div>
+<div id="particles"></div>
 
 
-  <!-- =====================================================
-       SIDE NAVIGATION OVERLAY
-  ====================================================== -->
+<!-- =====================================================
+     SIDE NAVIGATION OVERLAY
+===================================================== -->
 
-  <div
+<div
     class="nav-overlay"
     id="navOverlay"
-  ></div>
+>
 
 
-  <!-- =====================================================
-       SIDE NAVIGATION
-  ====================================================== -->
+    <aside
+        class="side-nav"
+        id="sideNav"
+    >
 
-  <aside
-    class="side-nav"
-    id="sideNav"
-    aria-hidden="true"
-  >
 
-    <div class="side-nav-head">
+        <!-- NAV HEADER -->
 
-      <a
-        href="index.html"
-        class="side-logo"
-      >
+        <div class="nav-header">
 
-        <span class="side-logo-mark">
-          V
-        </span>
+            <div class="nav-brand">
 
-        <span>
-          VOLT<span>RIX</span>
-        </span>
+                <div class="small-logo">
 
-      </a>
+                    <img
+                        src="assets/logo/voltrix-logo.jpg"
+                        alt="VOLTRIX"
+                    >
 
+                </div>
 
-      <button
-        type="button"
-        class="close-nav"
-        id="closeNav"
-        aria-label="Close navigation"
-      >
-        ×
-      </button>
+                <span>VOLTRIX</span>
 
-    </div>
+            </div>
 
 
-    <div class="nav-scroll">
+            <button
+                class="close-btn"
+                id="closeNav"
+                aria-label="Close navigation"
+            >
 
-      <p class="nav-label">
-        EXPLORE
-      </p>
+                ×
 
+            </button>
 
-      <a
-        href="index.html"
-        class="nav-link active"
-      >
-        <span class="nav-icon">⌂</span>
-        <span>Home</span>
-      </a>
+        </div>
 
 
-      <a
-        href="gaming.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">◈</span>
-        <span>Gaming Products</span>
-      </a>
 
+        <!-- NAVIGATION -->
 
-      <a
-        href="mobiles.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">▣</span>
-        <span>Mobile Products</span>
-      </a>
+        <nav class="navigation">
 
 
-      <a
-        href="fashion.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">◇</span>
-        <span>Printed T-Shirts</span>
-      </a>
+            <!-- MAIN -->
 
+            <div class="nav-section">
 
-      <a
-        href="electronics.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">▱</span>
-        <span>Electronics</span>
-      </a>
+                <p>MAIN</p>
 
 
-      <a
-        href="deals.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">%</span>
-        <span>Exclusive Deals</span>
-      </a>
+                <a
+                    href="index.html"
+                    class="nav-item"
+                >
 
+                    <div class="nav-icon">
 
-      <div class="nav-divider"></div>
+                        <img
+                            src="assets/icons/home.jpg"
+                            alt=""
+                        >
 
+                    </div>
 
-      <p class="nav-label">
-        VOLTRIX
-      </p>
+                    <span>Home</span>
 
+                    <b>›</b>
 
-      <a
-        href="about.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">i</span>
-        <span>About Us</span>
-      </a>
+                </a>
 
 
-      <a
-        href="updates.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">↻</span>
-        <span>Updates</span>
-      </a>
+                <a
+                    href="#categories"
+                    class="nav-item"
+                >
 
+                    <div class="nav-icon">
 
-      <a
-        href="javascript:void(0)"
-        class="nav-link"
-        id="rateUsLink"
-      >
-        <span class="nav-icon">★</span>
-        <span>Rate Us</span>
-      </a>
+                        <img
+                            src="assets/icons/category.jpg"
+                            alt=""
+                        >
 
+                    </div>
 
-      <a
-        href="social.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">◎</span>
-        <span>Join Social Media</span>
-      </a>
+                    <span>Categories</span>
 
+                    <b>›</b>
 
-      <a
-        href="https://fantovexhq.github.io/FantovexHQ-/"
-        class="nav-link"
-        target="_blank"
-        rel="noopener"
-      >
-        <span class="nav-icon">↗</span>
-        <span>Join Fantovex</span>
-      </a>
+                </a>
 
 
-      <div class="nav-divider"></div>
+                <a
+                    href="#products"
+                    class="nav-item"
+                >
 
+                    <div class="nav-icon">
 
-      <p class="nav-label">
-        ACCOUNT
-      </p>
+                        <img
+                            src="assets/icons/shop.jpg"
+                            alt=""
+                        >
 
+                    </div>
 
-      <a
-        href="account.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">○</span>
-        <span>My Account</span>
-      </a>
+                    <span>Shop</span>
 
+                    <b>›</b>
 
-      <a
-        href="cart.html"
-        class="nav-link"
-      >
-        <span class="nav-icon">🛒</span>
-        <span>My Cart</span>
+                </a>
 
-        <b
-          class="nav-cart-count"
-          id="navCartCount"
-        >
-          0
-        </b>
 
-      </a>
+                <a
+                    href="#deals"
+                    class="nav-item"
+                >
 
-    </div>
+                    <div class="nav-icon">
 
+                        <img
+                            src="assets/icons/deals.jpg"
+                            alt=""
+                        >
 
-    <div class="side-nav-footer">
+                    </div>
 
-      <div class="nav-status-dot"></div>
+                    <span>Best Deals</span>
 
-      <span>
-        VOLTRIX is online
-      </span>
+                    <b>›</b>
 
-    </div>
+                </a>
 
-  </aside>
+            </div>
 
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
 
-  <header class="main-header">
+            <!-- SHOP BY CATEGORY -->
 
-    <div class="header-left">
+            <div class="nav-section">
 
-      <button
-        type="button"
-        class="menu-button"
-        id="menuButton"
-        aria-label="Open navigation"
-        aria-expanded="false"
-      >
+                <p>SHOP BY CATEGORY</p>
 
-        <span></span>
-        <span></span>
-        <span></span>
 
-      </button>
+                <a
+                    href="pages/gaming.html"
+                    class="nav-item"
+                >
 
+                    <div class="nav-icon">
 
-      <a
+                        <img
+                            src="assets/icons/gaming.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Gaming</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="pages/outfit.html"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/outfit.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Outfit</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="pages/looksmaxing.html"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/looksmaxing.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Looksmaxing</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="pages/mobiles.html"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/mobiles.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Mobiles</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="pages/tools.html"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/tools.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Tools</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="#electronics"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/electronics.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Electronics</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="#accessories"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/accessories.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Accessories</span>
+
+                    <b>›</b>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- VOLTRIX -->
+
+            <div class="nav-section">
+
+                <p>VOLTRIX</p>
+
+
+                <a
+                    href="#about"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/about.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>About Us</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="#rate"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/rate.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Rate Us</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/contact.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Contact Us</span>
+
+                    <b>›</b>
+
+                </a>
+
+
+                <a
+                    href="#fantovex"
+                    class="nav-item"
+                >
+
+                    <div class="nav-icon">
+
+                        <img
+                            src="assets/icons/fantovex.jpg"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span>Join Fantovex</span>
+
+                    <b>›</b>
+
+                </a>
+
+            </div>
+
+
+        </nav>
+
+
+    </aside>
+
+</div>
+
+
+
+<!-- =====================================================
+     TOP HEADER
+===================================================== -->
+
+<header class="topbar">
+
+
+    <a
         href="index.html"
         class="brand"
-        aria-label="VOLTRIX Home"
-      >
-
-        <span class="brand-mark">
-          V
-        </span>
-
-        <span class="brand-name">
-          VOLT<span>RIX</span>
-        </span>
-
-      </a>
-
-    </div>
-
-
-    <!-- DESKTOP SEARCH -->
-
-    <form
-      class="desktop-search"
-      id="desktopSearchForm"
-      autocomplete="off"
     >
 
-      <span class="search-symbol">
-        ⌕
-      </span>
+        <div class="logo-space">
 
-      <input
-        type="search"
-        id="desktopSearch"
-        placeholder="Search products, brands and more"
-        aria-label="Search products"
-      >
+            <img
+                src="assets/logo/voltrix-logo.jpg"
+                alt="VOLTRIX Logo"
+            >
 
-      <button
-        type="button"
-        id="desktopSearchClear"
-        class="search-clear"
-        aria-label="Clear search"
-      >
-        ×
-      </button>
+        </div>
 
-    </form>
+        <span>VOLTRIX</span>
+
+    </a>
 
 
-    <div class="header-actions">
 
-      <a
-        href="account.html"
-        class="header-action"
-        aria-label="Account"
-      >
-        <span>♙</span>
-        <small>Account</small>
-      </a>
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
+        aria-expanded="false"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
 
 
-      <a
-        href="cart.html"
-        class="header-action cart-action"
-        aria-label="Cart"
-      >
+</header>
 
-        <span>🛒</span>
 
-        <small>Cart</small>
 
-        <b
-          class="header-cart-count"
-          id="headerCartCount"
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+
+    <!-- BANNER -->
+
+    <div class="hero-banner">
+
+        <img
+            src="assets/banner/home-banner.jpg"
+            alt="VOLTRIX Premium Shopping"
         >
-          0
-        </b>
-
-      </a>
 
     </div>
 
-  </header>
+
+    <!-- DARK OVERLAY -->
+
+    <div class="hero-overlay"></div>
 
 
-  <!-- =====================================================
-       MOBILE SEARCH
-  ====================================================== -->
+    <!-- HERO CONTENT -->
 
-  <section class="mobile-search-area">
-
-    <form
-      class="mobile-search"
-      id="mobileSearchForm"
-      autocomplete="off"
-    >
-
-      <span>
-        ⌕
-      </span>
-
-      <input
-        type="search"
-        id="mobileSearch"
-        placeholder="Search for products"
-        aria-label="Search products"
-      >
-
-      <button
-        type="submit"
-        aria-label="Search"
-      >
-        →
-      </button>
-
-    </form>
-
-  </section>
+    <div class="hero-content">
 
 
-  <!-- =====================================================
-       LOCATION BAR
-  ====================================================== -->
+        <div class="eyebrow">
 
-  <section class="location-bar">
+            PREMIUM • TRUSTED • RELIABLE • SECURE
 
-    <div class="location-inner">
+        </div>
 
-      <span class="location-icon">
-        ●
-      </span>
 
-      <span class="location-text">
-        Delivery location
-      </span>
+        <div class="hero-logo">
 
-      <button
-        type="button"
-        id="locationButton"
-      >
-        Select location
-        <span>›</span>
-      </button>
+            <img
+                src="assets/logo/voltrix-logo.jpg"
+                alt="VOLTRIX"
+            >
+
+        </div>
+
+
+        <h1>
+
+            VOLTRIX
+
+        </h1>
+
+
+        <div class="hero-tagline">
+
+            SHOP SMART
+            <span>•</span>
+            LIVE BETTER
+
+        </div>
+
+
+        <p class="hero-description">
+
+            Everything you need,
+            <strong>delivered to you.</strong>
+
+        </p>
+
+
+        <a
+            href="#categories"
+            class="primary-btn"
+        >
+
+            EXPLORE • SHOP NOW
+
+        </a>
+
 
     </div>
 
-  </section>
+
+</section>
 
 
-  <!-- =====================================================
-       CATEGORY QUICK NAVIGATION
-  ====================================================== -->
 
-  <section class="category-strip">
+<!-- =====================================================
+     SEARCH
+===================================================== -->
+
+<section class="search-section">
+
+
+    <div class="section-label">
+
+        DISCOVER
+
+    </div>
+
+
+    <h2>
+
+        Find what you need
+
+    </h2>
+
+
+    <div class="search-box">
+
+
+        <span class="search-symbol">
+
+            ⌕
+
+        </span>
+
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products, categories..."
+            autocomplete="off"
+        >
+
+
+        <button
+            id="searchButton"
+            type="button"
+            aria-label="Search"
+        >
+
+            → 
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="search-results"
+        id="searchResults"
+    ></div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORY SECTION
+===================================================== -->
+
+<section
+    class="categories"
+    id="categories"
+>
+
+
+    <div class="section-title">
+
+
+        <div>
+
+            <div class="section-label">
+
+                EXPLORE
+
+            </div>
+
+            <h2>
+
+                Shop by category
+
+            </h2>
+
+        </div>
+
+
+        <span>
+
+            SWIPE →
+
+        </span>
+
+
+    </div>
+
+
 
     <div class="category-scroll">
 
 
-      <a
-        href="index.html"
-        class="quick-category active"
-      >
+        <!-- GAMING -->
 
-        <div class="quick-category-icon">
-          ✦
-        </div>
+        <a
+            href="pages/gaming.html"
+            class="category-card"
+        >
 
-        <span>
-          For You
-        </span>
+            <div class="category-image">
 
-      </a>
+                <img
+                    src="assets/categories/gaming.jpg"
+                    alt="Gaming"
+                    onerror="this.style.display='none'"
+                >
 
+                <span class="image-fallback">
 
-      <a
-        href="gaming.html"
-        class="quick-category"
-      >
+                    GAMING
 
-        <div class="quick-category-icon">
-          ◈
-        </div>
+                </span>
 
-        <span>
-          Gaming
-        </span>
+            </div>
 
-      </a>
+            <strong>Gaming</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
 
 
-      <a
-        href="mobiles.html"
-        class="quick-category"
-      >
 
-        <div class="quick-category-icon">
-          ▣
-        </div>
+        <!-- OUTFIT -->
 
-        <span>
-          Mobiles
-        </span>
+        <a
+            href="pages/outfit.html"
+            class="category-card"
+        >
 
-      </a>
+            <div class="category-image">
 
+                <img
+                    src="assets/categories/outfit.jpg"
+                    alt="Outfit"
+                    onerror="this.style.display='none'"
+                >
 
-      <a
-        href="electronics.html"
-        class="quick-category"
-      >
+                <span class="image-fallback">
 
-        <div class="quick-category-icon">
-          ▱
-        </div>
+                    OUTFIT
 
-        <span>
-          Electronics
-        </span>
+                </span>
 
-      </a>
+            </div>
 
+            <strong>Outfit</strong>
 
-      <a
-        href="fashion.html"
-        class="quick-category"
-      >
+            <small>EXPLORE →</small>
 
-        <div class="quick-category-icon">
-          ◇
-        </div>
-
-        <span>
-          Fashion
-        </span>
-
-      </a>
+        </a>
 
 
-      <a
-        href="beauty.html"
-        class="quick-category"
-      >
 
-        <div class="quick-category-icon">
-          ✧
-        </div>
+        <!-- LOOKSMAXING -->
 
-        <span>
-          Beauty
-        </span>
+        <a
+            href="pages/looksmaxing.html"
+            class="category-card"
+        >
 
-      </a>
+            <div class="category-image">
+
+                <img
+                    src="assets/categories/looksmaxing.jpg"
+                    alt="Looksmaxing"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="image-fallback">
+
+                    LOOKSMAXING
+
+                </span>
+
+            </div>
+
+            <strong>Looksmaxing</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
 
 
-      <a
-        href="accessories.html"
-        class="quick-category"
-      >
 
-        <div class="quick-category-icon">
-          ◎
-        </div>
+        <!-- MOBILES -->
 
-        <span>
-          Accessories
-        </span>
+        <a
+            href="pages/mobiles.html"
+            class="category-card"
+        >
 
-      </a>
+            <div class="category-image">
+
+                <img
+                    src="assets/categories/mobiles.jpg"
+                    alt="Mobiles"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="image-fallback">
+
+                    MOBILES
+
+                </span>
+
+            </div>
+
+            <strong>Mobiles</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
 
 
-      <a
-        href="deals.html"
-        class="quick-category"
-      >
 
-        <div class="quick-category-icon">
-          %
-        </div>
+        <!-- TOOLS -->
 
-        <span>
-          Deals
-        </span>
+        <a
+            href="pages/tools.html"
+            class="category-card"
+        >
 
-      </a>
+            <div class="category-image">
+
+                <img
+                    src="assets/categories/tools.jpg"
+                    alt="Tools"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="image-fallback">
+
+                    TOOLS
+
+                </span>
+
+            </div>
+
+            <strong>Tools</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
+
+
+
+        <!-- ELECTRONICS -->
+
+        <a
+            href="#electronics"
+            class="category-card"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="assets/categories/electronics.jpg"
+                    alt="Electronics"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="image-fallback">
+
+                    ELECTRONICS
+
+                </span>
+
+            </div>
+
+            <strong>Electronics</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
+
+
+
+        <!-- ACCESSORIES -->
+
+        <a
+            href="#accessories"
+            class="category-card"
+        >
+
+            <div class="category-image">
+
+                <img
+                    src="assets/categories/accessories.jpg"
+                    alt="Accessories"
+                    onerror="this.style.display='none'"
+                >
+
+                <span class="image-fallback">
+
+                    ACCESSORIES
+
+                </span>
+
+            </div>
+
+            <strong>Accessories</strong>
+
+            <small>EXPLORE →</small>
+
+        </a>
+
 
     </div>
 
-  </section>
+
+</section>
 
 
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
 
-  <main>
+<!-- =====================================================
+     FEATURED PRODUCTS
+===================================================== -->
 
-
-    <!-- ===================================================
-         HERO
-    ==================================================== -->
-
-    <section class="hero-section">
-
-      <div class="hero-content">
-
-        <div class="hero-copy">
-
-          <span class="hero-eyebrow">
-            VOLTRIX MARKETPLACE
-          </span>
+<section
+    class="products-section"
+    id="products"
+>
 
 
-          <h1>
-            SHOP
-            <span>BEYOND</span>
-            LIMITS.
-          </h1>
+    <div class="section-title">
 
-
-          <p>
-            Discover gaming gear, electronics,
-            mobile accessories, fashion and
-            carefully selected products — all
-            in one place.
-          </p>
-
-
-          <div class="hero-buttons">
-
-            <a
-              href="deals.html"
-              class="primary-button"
-            >
-              EXPLORE DEALS
-              <span>→</span>
-            </a>
-
-
-            <a
-              href="#products"
-              class="secondary-button"
-            >
-              SHOP PRODUCTS
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-          <div class="hero-glow"></div>
-
-          <div class="hero-ring ring-one"></div>
-          <div class="hero-ring ring-two"></div>
-
-          <div class="hero-product">
-
-            <div class="hero-product-v">
-              V
-            </div>
-
-            <span>
-              VOLTRIX
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-scroll">
-
-        <span></span>
-
-        SCROLL TO DISCOVER
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         FEATURE CATEGORIES
-    ==================================================== -->
-
-    <section class="section categories-section">
-
-      <div class="section-heading">
 
         <div>
 
-          <span class="section-kicker">
-            EXPLORE
-          </span>
+            <div class="section-label">
 
-          <h2>
-            Shop by category
-          </h2>
+                FEATURED
+
+            </div>
+
+            <h2>
+
+                Popular products
+
+            </h2>
 
         </div>
 
 
         <a
-          href="categories.html"
-          class="section-link"
-        >
-          View all →
-        </a>
-
-      </div>
-
-
-      <div class="category-grid">
-
-
-        <a
-          href="gaming.html"
-          class="category-card category-gaming"
+            href="#products"
+            class="view-all"
         >
 
-          <div class="category-card-icon">
-            ◈
-          </div>
-
-          <div>
-
-            <span>
-              PERFORMANCE
-            </span>
-
-            <h3>
-              Gaming
-            </h3>
-
-            <p>
-              Gear for your setup
-            </p>
-
-          </div>
-
-          <b>
-            →
-          </b>
+            VIEW ALL →
 
         </a>
 
 
-        <a
-          href="mobiles.html"
-          class="category-card category-mobile"
+    </div>
+
+
+
+    <div class="product-grid">
+
+
+        <!-- PRODUCT 001 -->
+
+        <article
+            class="product-card"
+            data-product="gaming headset"
         >
 
-          <div class="category-card-icon">
-            ▣
-          </div>
 
-          <div>
+            <a
+                href="pages/product-001.html"
+                class="product-image"
+            >
 
-            <span>
-              EVERYDAY TECH
-            </span>
+                <img
+                    src="assets/products/gaming/gaming-001.jpg"
+                    alt="Gaming Product"
+                    onerror="this.style.display='none'"
+                >
 
-            <h3>
-              Mobiles
-            </h3>
+                <span>
 
-            <p>
-              Accessories & more
-            </p>
+                    PRODUCT IMAGE
 
-          </div>
+                </span>
 
-          <b>
-            →
-          </b>
-
-        </a>
+            </a>
 
 
-        <a
-          href="electronics.html"
-          class="category-card category-electronics"
+            <div class="product-info">
+
+
+                <h3>
+
+                    Premium Gaming Product
+
+                </h3>
+
+
+                <div class="rating">
+
+                    ★★★★★
+
+                    <small>
+
+                        5.0
+
+                    </small>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <strong>
+
+                        ₹999
+
+                    </strong>
+
+                    <del>
+
+                        ₹1,499
+
+                    </del>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-product-id="gaming-001"
+                    >
+
+                        ADD TO CART
+
+                    </button>
+
+
+                    <a
+                        href="pages/product-001.html"
+                        class="view-product"
+                    >
+
+                        VIEW PRODUCT
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PRODUCT 002 -->
+
+        <article
+            class="product-card"
+            data-product="outfit"
         >
 
-          <div class="category-card-icon">
-            ▱
-          </div>
 
-          <div>
+            <a
+                href="pages/product-002.html"
+                class="product-image"
+            >
 
-            <span>
-              SMART LIVING
-            </span>
+                <img
+                    src="assets/products/outfit/outfit-001.jpg"
+                    alt="Outfit Product"
+                    onerror="this.style.display='none'"
+                >
 
-            <h3>
-              Electronics
-            </h3>
+                <span>
 
-            <p>
-              Upgrade your setup
-            </p>
+                    PRODUCT IMAGE
 
-          </div>
+                </span>
 
-          <b>
-            →
-          </b>
-
-        </a>
+            </a>
 
 
-        <a
-          href="fashion.html"
-          class="category-card category-fashion"
+            <div class="product-info">
+
+
+                <h3>
+
+                    Premium Outfit
+
+                </h3>
+
+
+                <div class="rating">
+
+                    ★★★★★
+
+                    <small>
+
+                        4.9
+
+                    </small>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <strong>
+
+                        ₹999
+
+                    </strong>
+
+                    <del>
+
+                        ₹1,499
+
+                    </del>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-product-id="outfit-001"
+                    >
+
+                        ADD TO CART
+
+                    </button>
+
+
+                    <a
+                        href="pages/product-002.html"
+                        class="view-product"
+                    >
+
+                        VIEW PRODUCT
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PRODUCT 003 -->
+
+        <article
+            class="product-card"
+            data-product="looksmaxing"
         >
 
-          <div class="category-card-icon">
-            ◇
-          </div>
 
-          <div>
+            <a
+                href="pages/product-003.html"
+                class="product-image"
+            >
 
-            <span>
-              WEAR YOUR STYLE
-            </span>
+                <img
+                    src="assets/products/looksmaxing/looksmaxing-001.jpg"
+                    alt="Looksmaxing Product"
+                    onerror="this.style.display='none'"
+                >
 
-            <h3>
-              Fashion
-            </h3>
+                <span>
 
-            <p>
-              Printed tees & more
-            </p>
+                    PRODUCT IMAGE
 
-          </div>
+                </span>
 
-          <b>
-            →
-          </b>
-
-        </a>
-
-      </div>
-
-    </section>
+            </a>
 
 
-    <!-- ===================================================
-         DEAL BANNER
-    ==================================================== -->
+            <div class="product-info">
 
-    <section class="deal-banner">
 
-      <div class="deal-banner-content">
+                <h3>
 
-        <span>
-          LIMITED TIME
-        </span>
+                    Premium Care Product
+
+                </h3>
+
+
+                <div class="rating">
+
+                    ★★★★★
+
+                    <small>
+
+                        4.8
+
+                    </small>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <strong>
+
+                        ₹999
+
+                    </strong>
+
+                    <del>
+
+                        ₹1,499
+
+                    </del>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-product-id="looksmaxing-001"
+                    >
+
+                        ADD TO CART
+
+                    </button>
+
+
+                    <a
+                        href="pages/product-003.html"
+                        class="view-product"
+                    >
+
+                        VIEW PRODUCT
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <!-- PRODUCT 004 -->
+
+        <article
+            class="product-card"
+            data-product="mobile"
+        >
+
+
+            <a
+                href="pages/product-004.html"
+                class="product-image"
+            >
+
+                <img
+                    src="assets/products/mobiles/mobiles-001.jpg"
+                    alt="Mobile Product"
+                    onerror="this.style.display='none'"
+                >
+
+                <span>
+
+                    PRODUCT IMAGE
+
+                </span>
+
+            </a>
+
+
+            <div class="product-info">
+
+
+                <h3>
+
+                    Smart Mobile Product
+
+                </h3>
+
+
+                <div class="rating">
+
+                    ★★★★★
+
+                    <small>
+
+                        4.9
+
+                    </small>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <strong>
+
+                        ₹999
+
+                    </strong>
+
+                    <del>
+
+                        ₹1,499
+
+                    </del>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button
+                        class="add-cart"
+                        type="button"
+                        data-product-id="mobiles-001"
+                    >
+
+                        ADD TO CART
+
+                    </button>
+
+
+                    <a
+                        href="pages/product-004.html"
+                        class="view-product"
+                    >
+
+                        VIEW PRODUCT
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     DEALS
+===================================================== -->
+
+<section
+    class="deal-section"
+    id="deals"
+>
+
+
+    <div class="deal-content">
+
+
+        <div class="section-label">
+
+            VOLTRIX DEALS
+
+        </div>
+
 
         <h2>
-          Emerald Deals.
-          <br>
-          <strong>Maximum value.</strong>
+
+            Better products.<br>
+            Smarter prices.
+
         </h2>
 
+
         <p>
-          Selected products at special prices.
+
+            Discover selected products
+            without unnecessary markup.
+
         </p>
 
+
         <a
-          href="deals.html"
-          class="deal-button"
+            href="#products"
+            class="primary-btn"
         >
-          SEE ALL DEALS →
+
+            EXPLORE DEALS
+
         </a>
 
-      </div>
+
+    </div>
 
 
-      <div class="deal-decoration">
+</section>
 
-        <div class="deal-circle"></div>
 
-        <div class="deal-symbol">
-          %
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="about-section"
+    id="about"
+>
+
+
+    <div class="section-label">
+
+        ABOUT VOLTRIX
+
+    </div>
+
+
+    <h2>
+
+        Shop smart.<br>
+        Live better.
+
+    </h2>
+
+
+    <p>
+
+        VOLTRIX is built around a simple idea:
+        finding useful products should be
+        simple, modern and enjoyable.
+
+        From gaming and lifestyle products
+        to technology, tools and accessories,
+        VOLTRIX brings different categories
+        together in one shopping experience.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     JOIN FANTOVEX
+===================================================== -->
+
+<section
+    class="fantovex-section"
+    id="fantovex"
+>
+
+
+    <div class="fantovex-content">
+
+
+        <div class="section-label">
+
+            POWERED BY
+
         </div>
 
-      </div>
 
-    </section>
+        <h2>
+
+            FANTOVEX
+
+        </h2>
 
 
-    <!-- ===================================================
-         PRODUCTS
-    ==================================================== -->
+        <p>
 
-    <section
-      class="section products-section"
-      id="products"
+            Built with the vision of creating
+            something bigger.
+
+        </p>
+
+
+        <a
+            href="#contact"
+            class="outline-btn"
+        >
+
+            JOIN FANTOVEX
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RATE
+===================================================== -->
+
+<section
+    class="rate-section"
+    id="rate"
+>
+
+
+    <div class="section-label">
+
+        YOUR EXPERIENCE
+
+    </div>
+
+
+    <h2>
+
+        Enjoying VOLTRIX?
+
+    </h2>
+
+
+    <p>
+
+        Your feedback helps us improve.
+
+    </p>
+
+
+    <a
+        href="#contact"
+        class="outline-btn"
     >
 
-      <div class="section-heading">
+        RATE US
 
-        <div>
+    </a>
 
-          <span class="section-kicker">
-            CURATED FOR YOU
-          </span>
 
-          <h2>
-            Our products
-          </h2>
+</section>
 
-        </div>
 
 
-        <a
-          href="categories.html"
-          class="section-link"
-        >
-          See all →
-        </a>
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-      </div>
+<section
+    class="contact-section"
+    id="contact"
+>
 
 
-      <!-- PRODUCT GRID
-           script.js will populate this -->
-      <div
-        class="product-grid"
-        id="homeProductGrid"
-      >
+    <div class="section-label">
 
-        <!-- FALLBACK CARDS -->
+        SUPPORT
 
-        <a
-          href="product.html?id=1"
-          class="product-card"
-        >
+    </div>
 
-          <div class="product-image">
 
-            <span class="product-badge">
-              NEW
-            </span>
+    <h2>
 
-            <div class="product-placeholder">
-              VG
-            </div>
+        Need help?
 
-          </div>
+    </h2>
 
 
-          <div class="product-info">
+    <p>
 
-            <span class="product-category">
-              GAMING
-            </span>
+        Our support section will be
+        connected to the final customer
+        support system.
 
-            <h3>
-              VoltGrip Gaming Accessory
-            </h3>
+    </p>
 
-            <div class="product-rating">
-              ★ 4.7
-            </div>
 
-            <div class="product-price">
-              ₹699
-            </div>
+    <a
+        href="#home"
+        class="outline-btn"
+    >
 
-          </div>
+        BACK TO TOP
 
-        </a>
+    </a>
 
 
-        <a
-          href="product.html?id=2"
-          class="product-card"
-        >
+</section>
 
-          <div class="product-image">
 
-            <span class="product-badge">
-              HOT
-            </span>
+</main>
 
-            <div class="product-placeholder">
-              PX
-            </div>
 
-          </div>
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-          <div class="product-info">
+<footer class="footer">
 
-            <span class="product-category">
-              ELECTRONICS
-            </span>
-
-            <h3>
-              Pulse RGB Desk Hub
-            </h3>
-
-            <div class="product-rating">
-              ★ 4.6
-            </div>
-
-            <div class="product-price">
-              ₹1,299
-            </div>
-
-          </div>
-
-        </a>
-
-
-        <a
-          href="product.html?id=3"
-          class="product-card"
-        >
-
-          <div class="product-image">
-
-            <div class="product-placeholder">
-              CC
-            </div>
-
-          </div>
-
-
-          <div class="product-info">
-
-            <span class="product-category">
-              ACCESSORIES
-            </span>
-
-            <h3>
-              CoreCable Organizer
-            </h3>
-
-            <div class="product-rating">
-              ★ 4.5
-            </div>
-
-            <div class="product-price">
-              ₹399
-            </div>
-
-          </div>
-
-        </a>
-
-
-        <a
-          href="product.html?id=4"
-          class="product-card"
-        >
-
-          <div class="product-image">
-
-            <span class="product-badge">
-              SALE
-            </span>
-
-            <div class="product-placeholder">
-              AD
-            </div>
-
-          </div>
-
-
-          <div class="product-info">
-
-            <span class="product-category">
-              GAMING
-            </span>
-
-            <h3>
-              AeroDock Headset Stand
-            </h3>
-
-            <div class="product-rating">
-              ★ 4.4
-            </div>
-
-            <div class="product-price">
-              ₹999
-            </div>
-
-          </div>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         WHY VOLTRIX
-    ==================================================== -->
-
-    <section class="section why-section">
-
-      <div class="section-heading centered">
-
-        <span class="section-kicker">
-          WHY VOLTRIX
-        </span>
-
-        <h2>
-          Built around your shopping.
-        </h2>
-
-        <p>
-          We're creating a marketplace that
-          keeps things simple, useful and focused
-          on products worth discovering.
-        </p>
-
-      </div>
-
-
-      <div class="why-grid">
-
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            ◈
-          </div>
-
-          <h3>
-            Curated products
-          </h3>
-
-          <p>
-            Products selected with quality,
-            usefulness and value in mind.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            ⚡
-          </div>
-
-          <h3>
-            Simple shopping
-          </h3>
-
-          <p>
-            Find a product, view its details,
-            add it to your cart and continue.
-          </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-          <div class="why-icon">
-            ♢
-          </div>
-
-          <h3>
-            VOLTRIX identity
-          </h3>
-
-          <p>
-            A shopping experience designed
-            around the VOLTRIX brand.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ===================================================
-         NEWSLETTER
-    ==================================================== -->
-
-    <section class="newsletter-section">
-
-      <div>
-
-        <span class="section-kicker">
-          STAY CONNECTED
-        </span>
-
-        <h2>
-          Get the next drop.
-        </h2>
-
-        <p>
-          Product launches, offers and VOLTRIX
-          updates — delivered in one place.
-        </p>
-
-      </div>
-
-
-      <form
-        class="newsletter-form"
-        id="newsletterForm"
-      >
-
-        <input
-          type="email"
-          id="newsletterEmail"
-          placeholder="Your email address"
-          autocomplete="email"
-          required
-        >
-
-        <button
-          type="submit"
-        >
-          JOIN →
-        </button>
-
-      </form>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer class="site-footer">
 
     <div class="footer-brand">
 
-      <a
-        href="index.html"
-        class="brand footer-logo"
-      >
 
-        <span class="brand-mark">
-          V
-        </span>
+        <div class="footer-logo">
 
-        <span class="brand-name">
-          VOLT<span>RIX</span>
-        </span>
+            <img
+                src="assets/logo/voltrix-logo.jpg"
+                alt="VOLTRIX"
+            >
 
-      </a>
+        </div>
 
 
-      <p>
-        Shop beyond limits.
-      </p>
+        <h2>
+
+            VOLTRIX
+
+        </h2>
+
+
+        <p>
+
+            SHOP SMART • LIVE BETTER
+
+        </p>
+
 
     </div>
 
 
-    <div class="footer-column">
 
-      <h3>
-        SHOP
-      </h3>
+    <div class="footer-grid">
 
-      <a href="gaming.html">
-        Gaming
-      </a>
 
-      <a href="mobiles.html">
-        Mobiles
-      </a>
+        <div>
 
-      <a href="electronics.html">
-        Electronics
-      </a>
+            <h3>SHOP</h3>
 
-      <a href="fashion.html">
-        Fashion
-      </a>
+            <a href="#categories">
+
+                Categories
+
+            </a>
+
+            <a href="#products">
+
+                Products
+
+            </a>
+
+            <a href="#deals">
+
+                Deals
+
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>COMPANY</h3>
+
+            <a href="#about">
+
+                About Us
+
+            </a>
+
+            <a href="#fantovex">
+
+                Join Fantovex
+
+            </a>
+
+            <a href="#rate">
+
+                Rate Us
+
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>HELP</h3>
+
+            <a href="#contact">
+
+                Contact
+
+            </a>
+
+            <a href="cart.html">
+
+                Cart
+
+            </a>
+
+            <a href="account.html">
+
+                Account
+
+            </a>
+
+        </div>
+
 
     </div>
 
-
-    <div class="footer-column">
-
-      <h3>
-        VOLTRIX
-      </h3>
-
-      <a href="about.html">
-        About Us
-      </a>
-
-      <a href="updates.html">
-        Updates
-      </a>
-
-      <a href="social.html">
-        Social Media
-      </a>
-
-      <a href="deals.html">
-        Deals
-      </a>
-
-    </div>
-
-
-    <div class="footer-column">
-
-      <h3>
-        ACCOUNT
-      </h3>
-
-      <a href="account.html">
-        My Account
-      </a>
-
-      <a href="cart.html">
-        My Cart
-      </a>
-
-      <a href="categories.html">
-        Categories
-      </a>
-
-    </div>
 
 
     <div class="footer-bottom">
 
-      <span>
-        © 2026 VOLTRIX
-      </span>
 
-      <span>
-        SHOP BEYOND LIMITS
-      </span>
+        <span>
+
+            © 2026 VOLTRIX
+
+        </span>
+
+
+        <span>
+
+            POWERED BY FANTOVEX
+
+        </span>
+
 
     </div>
 
-  </footer>
+
+</footer>
 
 
-  <!-- =====================================================
-       MOBILE BOTTOM NAVIGATION
-  ====================================================== -->
 
-  <nav class="bottom-nav">
+<!-- =====================================================
+     FIXED BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <!-- HOME -->
 
     <a
-      href="index.html"
-      class="bottom-nav-item active"
+        href="index.html"
+        class="bottom-link active"
     >
 
-      <span class="bottom-icon">
-        ⌂
-      </span>
+        <div class="bottom-icon">
 
-      <span>
-        Home
-      </span>
+            <img
+                src="assets/icons/home.jpg"
+                alt="Home"
+            >
+
+        </div>
+
+        <span>
+
+            HOME
+
+        </span>
 
     </a>
 
 
+
+    <!-- CATEGORY -->
+
     <a
-      href="categories.html"
-      class="bottom-nav-item"
+        href="#categories"
+        class="bottom-link"
     >
 
-      <span class="bottom-icon">
-        ▦
-      </span>
+        <div class="bottom-icon">
 
-      <span>
-        Categories
-      </span>
+            <img
+                src="assets/icons/category.jpg"
+                alt="Categories"
+            >
+
+        </div>
+
+        <span>
+
+            CATEGORY
+
+        </span>
 
     </a>
 
 
+
+    <!-- CART -->
+
     <a
-      href="account.html"
-      class="bottom-nav-item"
+        href="cart.html"
+        class="bottom-link"
     >
 
-      <span class="bottom-icon">
-        ♙
-      </span>
+        <div class="bottom-icon">
 
-      <span>
-        Account
-      </span>
+            <img
+                src="assets/icons/cart.jpg"
+                alt="Cart"
+            >
+
+        </div>
+
+        <span>
+
+            CART
+
+        </span>
 
     </a>
 
 
+
+    <!-- ACCOUNT -->
+
     <a
-      href="cart.html"
-      class="bottom-nav-item bottom-cart"
+        href="account.html"
+        class="bottom-link"
     >
 
-      <span class="bottom-icon">
-        🛒
+        <div class="bottom-icon">
 
-        <b
-          id="bottomCartCount"
-        >
-          0
-        </b>
+            <img
+                src="assets/icons/account.jpg"
+                alt="Account"
+            >
 
-      </span>
+        </div>
 
-      <span>
-        Cart
-      </span>
+        <span>
+
+            ACCOUNT
+
+        </span>
 
     </a>
 
-  </nav>
+
+</nav>
 
 
-  <!-- =====================================================
-       LOCATION MODAL
-  ====================================================== -->
 
-  <div
-    class="modal"
-    id="locationModal"
-    aria-hidden="true"
-  >
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
 
-    <div class="modal-box">
+<script src="script.js"></script>
 
-      <button
-        type="button"
-        class="modal-close"
-        data-close-modal
-      >
-        ×
-      </button>
-
-
-      <span class="modal-kicker">
-        DELIVERY
-      </span>
-
-
-      <h2>
-        Where should we deliver?
-      </h2>
-
-
-      <p>
-        Enter your pincode to check
-        delivery availability.
-      </p>
-
-
-      <form
-        id="locationForm"
-      >
-
-        <input
-          type="text"
-          id="locationPincode"
-          inputmode="numeric"
-          maxlength="6"
-          placeholder="Enter 6-digit pincode"
-          required
-        >
-
-
-        <button
-          type="submit"
-          class="primary-button"
-        >
-          CHECK DELIVERY
-        </button>
-
-      </form>
-
-
-      <div
-        class="modal-message"
-        id="locationMessage"
-      ></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =====================================================
-       TOAST
-  ====================================================== -->
-
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-  ></div>
-
-
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
-
-  <script src="script.js"></script>
 
 </body>
+
 </html>
