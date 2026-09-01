@@ -1,450 +1,1076 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#07100b">
-  <meta name="description" content="Your VOLTRIX shopping cart.">
-  <title>My Cart — VOLTRIX</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
 
-  <style>
-    .cart-layout {
-      display: grid;
-      grid-template-columns: 1.7fr 1fr;
-      gap: 24px;
-      width: min(1100px, calc(100% - 30px));
-      margin: 40px auto 70px;
-      align-items: start;
-    }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    .cart-items { display: grid; gap: 14px; }
+    <meta
+        name="theme-color"
+        content="#020605"
+    >
 
-    .cart-item {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 16px;
-      align-items: center;
-      padding: 16px;
-      border: 1px solid rgba(0,255,156,.1);
-      border-radius: 16px;
-      background: rgba(0,255,156,.025);
-    }
+    <title>VOLTRIX — Your Cart</title>
 
-    .cart-item-image {
-      width: 90px;
-      height: 90px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(0,255,156,.25);
-      border-radius: 14px;
-      color: var(--emerald);
-      background: rgba(0,255,156,.05);
-      font-weight: 900;
-      font-size: 18px;
-    }
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-    .cart-item-info h3 { font-size: 15px; }
+    <style>
 
-    .cart-item-info .product-category { font-size: 8px; }
+        /* =====================================================
+           VOLTRIX CART
+        ===================================================== */
 
-    .cart-item-price {
-      margin-top: 6px;
-      color: white;
-      font-weight: 900;
-      font-size: 16px;
-    }
+        .cart-page {
+            width: min(100%, 900px);
+            margin: auto;
+            padding: 35px 15px 120px;
+        }
 
-    .cart-item-controls {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
+        .cart-heading {
+            margin-bottom: 25px;
+        }
 
-    .cart-qty-control {
-      display: flex;
-      align-items: center;
-      border: 1px solid rgba(0,255,156,.2);
-      border-radius: 10px;
-      overflow: hidden;
-    }
+        .cart-heading .section-label {
+            margin-bottom: 8px;
+        }
 
-    .cart-qty-control button {
-      width: 32px;
-      height: 32px;
-      border: 0;
-      background: rgba(0,255,156,.05);
-      color: var(--emerald);
-      font-weight: 900;
-    }
+        .cart-heading h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(32px, 9vw, 52px);
+            letter-spacing: 2px;
+        }
 
-    .cart-qty-control span {
-      min-width: 30px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-    }
+        .cart-heading p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 13px;
+        }
 
-    .cart-remove-btn {
-      border: 0;
-      background: transparent;
-      color: #8ca79c;
-      font-size: 11px;
-      text-decoration: underline;
-    }
+        /* CART ITEMS */
 
-    .cart-remove-btn:hover { color: #ff6b6b; }
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-    .cart-summary {
-      position: sticky;
-      top: 90px;
-      padding: 24px;
-      border: 1px solid rgba(0,255,156,.18);
-      border-radius: 20px;
-      background: rgba(0,255,156,.035);
-    }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 14px;
 
-    .cart-summary h2 { font-size: 20px; margin-bottom: 18px; }
+            padding: 12px;
 
-    .cart-summary-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      color: #9cb7ab;
-      font-size: 13px;
-    }
+            border: 1px solid rgba(0,245,160,0.16);
+            border-radius: 17px;
 
-    .cart-summary-row.total {
-      margin-top: 8px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(0,255,156,.15);
-      color: white;
-      font-size: 18px;
-      font-weight: 900;
-    }
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(10,25,20,0.95),
+                    rgba(3,9,7,0.95)
+                );
 
-    .cart-summary .primary-button {
-      width: 100%;
-      margin-top: 18px;
-    }
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.2);
+        }
 
-    .cart-empty {
-      width: min(500px, calc(100% - 30px));
-      margin: 90px auto;
-      text-align: center;
-      color: #9cb7ab;
-    }
+        .cart-image {
+            width: 92px;
+            height: 105px;
 
-    .cart-empty h2 { color: white; margin-bottom: 10px; }
-    .cart-empty .primary-button { margin-top: 20px; display: inline-flex; }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    @media (max-width: 850px) {
-      .cart-layout { grid-template-columns: 1fr; }
-      .cart-item { grid-template-columns: 70px 1fr; }
-      .cart-item-controls { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; }
-      .cart-summary { position: static; }
-    }
-  </style>
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0,245,160,0.12),
+                    #020605 70%
+                );
+
+            border:
+                1px solid rgba(0,245,160,0.12);
+        }
+
+        .cart-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-image span {
+            position: absolute;
+
+            color: #53625e;
+
+            font-size: 7px;
+            letter-spacing: 1px;
+        }
+
+        .cart-details {
+            min-width: 0;
+        }
+
+        .cart-details h2 {
+            font-size: 15px;
+            line-height: 1.35;
+            margin-bottom: 7px;
+        }
+
+        .cart-price {
+            color: var(--emerald);
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .cart-old-price {
+            margin-left: 7px;
+            color: #64716e;
+            font-size: 10px;
+        }
+
+        .quantity-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 13px;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+
+            border:
+                1px solid rgba(0,245,160,0.25);
+
+            border-radius: 9px;
+
+            overflow: hidden;
+        }
+
+        .quantity-box button {
+            width: 32px;
+            height: 32px;
+
+            border: 0;
+
+            background:
+                rgba(0,245,160,0.06);
+
+            color: var(--emerald);
+
+            font-size: 18px;
+        }
+
+        .quantity-box span {
+            width: 34px;
+
+            text-align: center;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .remove-btn {
+            border: 0;
+            background: transparent;
+            color: var(--danger);
+
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        /* EMPTY CART */
+
+        .empty-cart {
+            display: none;
+
+            text-align: center;
+
+            padding: 65px 20px;
+
+            border:
+                1px solid rgba(0,245,160,0.15);
+
+            border-radius: 20px;
+
+            background:
+                rgba(5,14,11,0.8);
+        }
+
+        .empty-cart-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(0,245,160,0.3);
+
+            color: var(--emerald);
+
+            font-size: 28px;
+
+            box-shadow:
+                0 0 25px rgba(0,245,160,0.1);
+        }
+
+        .empty-cart h2 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+        }
+
+        .empty-cart p {
+            margin: 12px 0 25px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* SUMMARY */
+
+        .cart-summary {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border:
+                1px solid rgba(0,245,160,0.2);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #07100d,
+                    #020605
+                );
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 8px 0;
+
+            color: #aab8b4;
+
+            font-size: 13px;
+        }
+
+        .summary-row strong {
+            color: white;
+        }
+
+        .summary-divider {
+            height: 1px;
+
+            margin: 10px 0;
+
+            background:
+                rgba(0,245,160,0.18);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+
+            padding-top: 8px;
+
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .summary-total span:last-child {
+            color: var(--emerald);
+
+            text-shadow:
+                0 0 12px rgba(0,245,160,0.3);
+        }
+
+        .checkout-btn {
+            width: 100%;
+
+            min-height: 54px;
+
+            margin-top: 20px;
+
+            border:
+                1px solid var(--emerald);
+
+            border-radius: 12px;
+
+            background:
+                var(--emerald);
+
+            color: #00140d;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            box-shadow:
+                0 0 25px rgba(0,245,160,0.15);
+
+            transition: 0.25s;
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 35px rgba(0,245,160,0.35);
+        }
+
+        .continue-shopping {
+            display: block;
+
+            text-align: center;
+
+            margin-top: 16px;
+
+            color: #84938f;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .continue-shopping:hover {
+            color: var(--emerald);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 390px) {
+
+            .cart-item {
+                grid-template-columns: 78px 1fr;
+            }
+
+            .cart-image {
+                width: 78px;
+                height: 92px;
+            }
+
+            .cart-details h2 {
+                font-size: 13px;
+            }
+
+            .cart-price {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
-  <div class="page-loader" id="pageLoader" aria-hidden="true">
-    <div class="loader-logo">V</div>
-    <div class="loader-name">VOLT<span>RIX</span></div>
-    <div class="loader-line"><span></span></div>
-  </div>
+
+<!-- PARTICLES -->
+
+<div id="particles"></div>
 
 
-  <div class="nav-overlay" id="navOverlay"></div>
+<!-- HEADER -->
 
+<header class="topbar">
 
-  <aside class="side-nav" id="sideNav" aria-hidden="true">
+    <a
+        href="index.html"
+        class="brand"
+    >
 
-    <div class="side-nav-head">
-      <a href="index.html" class="side-logo">
-        <span class="side-logo-mark">V</span>
-        <span>VOLT<span>RIX</span></span>
-      </a>
-      <button type="button" class="close-nav" id="closeNav" aria-label="Close navigation">×</button>
-    </div>
+        <div class="logo-space">
 
-    <div class="nav-scroll">
-      <p class="nav-label">EXPLORE</p>
-      <a href="index.html" class="nav-link"><span class="nav-icon">⌂</span><span>Home</span></a>
-      <a href="gaming.html" class="nav-link"><span class="nav-icon">◈</span><span>Gaming Products</span></a>
-      <a href="mobiles.html" class="nav-link"><span class="nav-icon">▣</span><span>Mobile Products</span></a>
-      <a href="fashion.html" class="nav-link"><span class="nav-icon">◇</span><span>Printed T-Shirts</span></a>
-      <a href="electronics.html" class="nav-link"><span class="nav-icon">▱</span><span>Electronics</span></a>
-      <a href="deals.html" class="nav-link"><span class="nav-icon">%</span><span>Exclusive Deals</span></a>
-      <div class="nav-divider"></div>
-      <p class="nav-label">VOLTRIX</p>
-      <a href="about.html" class="nav-link"><span class="nav-icon">i</span><span>About Us</span></a>
-      <a href="updates.html" class="nav-link"><span class="nav-icon">↻</span><span>Updates</span></a>
-      <a href="javascript:void(0)" class="nav-link" id="rateUsLink"><span class="nav-icon">★</span><span>Rate Us</span></a>
-      <a href="social.html" class="nav-link"><span class="nav-icon">◎</span><span>Join Social Media</span></a>
-      <a href="https://fantovexhq.github.io/FantovexHQ-/" class="nav-link" target="_blank" rel="noopener"><span class="nav-icon">↗</span><span>Join Fantovex</span></a>
-      <div class="nav-divider"></div>
-      <p class="nav-label">ACCOUNT</p>
-      <a href="account.html" class="nav-link"><span class="nav-icon">○</span><span>My Account</span></a>
-      <a href="cart.html" class="nav-link active"><span class="nav-icon">🛒</span><span>My Cart</span><b class="nav-cart-count" id="navCartCount">0</b></a>
-    </div>
+            <img
+                src="assets/logo/voltrix-logo.jpg"
+                alt="VOLTRIX"
+            >
 
-    <div class="side-nav-footer">
-      <div class="nav-status-dot"></div>
-      <span>VOLTRIX is online</span>
-    </div>
-
-  </aside>
-
-
-  <header class="main-header">
-    <div class="header-left">
-      <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <a href="index.html" class="brand" aria-label="VOLTRIX Home">
-        <span class="brand-mark">V</span>
-        <span class="brand-name">VOLT<span>RIX</span></span>
-      </a>
-    </div>
-
-    <form class="desktop-search" id="desktopSearchForm" autocomplete="off">
-      <span class="search-symbol">⌕</span>
-      <input type="search" id="desktopSearch" placeholder="Search products" aria-label="Search products">
-      <button type="button" id="desktopSearchClear" class="search-clear" aria-label="Clear search">×</button>
-    </form>
-
-    <div class="header-actions">
-      <a href="account.html" class="header-action" aria-label="Account"><span>♙</span><small>Account</small></a>
-      <a href="cart.html" class="header-action cart-action" aria-label="Cart">
-        <span>🛒</span><small>Cart</small>
-        <b class="header-cart-count" id="headerCartCount">0</b>
-      </a>
-    </div>
-  </header>
-
-
-  <section class="mobile-search-area">
-    <form class="mobile-search" id="mobileSearchForm" autocomplete="off">
-      <span>⌕</span>
-      <input type="search" id="mobileSearch" placeholder="Search products" aria-label="Search products">
-      <button type="submit" aria-label="Search">→</button>
-    </form>
-  </section>
-
-
-  <main>
-
-    <section class="section" style="padding-bottom: 0;">
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">YOUR CART</span>
-          <h2>My Cart</h2>
         </div>
-      </div>
+
+        <span>VOLTRIX</span>
+
+    </a>
+
+
+    <a
+        href="index.html"
+        class="outline-btn"
+        style="
+            min-height:42px;
+            padding:0 16px;
+            font-size:9px;
+        "
+    >
+
+        SHOP
+
+    </a>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="cart-page">
+
+
+    <section class="cart-heading">
+
+        <div class="section-label">
+            VOLTRIX
+        </div>
+
+        <h1>
+            YOUR CART
+        </h1>
+
+        <p>
+            Review your selected products before checkout.
+        </p>
+
     </section>
 
-    <!-- Rendered by inline script below -->
-    <div id="cartContainer"></div>
 
-  </main>
+    <!-- EMPTY CART -->
 
+    <section
+        class="empty-cart"
+        id="emptyCart"
+    >
 
-  <footer class="site-footer">
-    <div class="footer-brand">
-      <a href="index.html" class="brand footer-logo">
-        <span class="brand-mark">V</span>
-        <span class="brand-name">VOLT<span>RIX</span></span>
-      </a>
-      <p>Shop beyond limits.</p>
-    </div>
-    <div class="footer-column">
-      <h3>SHOP</h3>
-      <a href="gaming.html">Gaming</a><a href="mobiles.html">Mobiles</a>
-      <a href="electronics.html">Electronics</a><a href="fashion.html">Fashion</a>
-    </div>
-    <div class="footer-column">
-      <h3>VOLTRIX</h3>
-      <a href="about.html">About Us</a><a href="updates.html">Updates</a>
-      <a href="social.html">Social Media</a><a href="deals.html">Deals</a>
-    </div>
-    <div class="footer-column">
-      <h3>ACCOUNT</h3>
-      <a href="account.html">My Account</a><a href="cart.html">My Cart</a>
-      <a href="categories.html">Categories</a>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 VOLTRIX</span>
-      <span>SHOP BEYOND LIMITS</span>
-    </div>
-  </footer>
+        <div class="empty-cart-icon">
+            🛒
+        </div>
+
+        <h2>
+            Your cart is empty
+        </h2>
+
+        <p>
+            You haven't added anything yet.
+        </p>
+
+        <a
+            href="index.html#products"
+            class="primary-btn"
+        >
+            START SHOPPING
+        </a>
+
+    </section>
 
 
-  <nav class="bottom-nav">
-    <a href="index.html" class="bottom-nav-item"><span class="bottom-icon">⌂</span><span>Home</span></a>
-    <a href="categories.html" class="bottom-nav-item"><span class="bottom-icon">▦</span><span>Categories</span></a>
-    <a href="account.html" class="bottom-nav-item"><span class="bottom-icon">♙</span><span>Account</span></a>
-    <a href="cart.html" class="bottom-nav-item bottom-cart active"><span class="bottom-icon">🛒<b id="bottomCartCount">0</b></span><span>Cart</span></a>
-  </nav>
+    <!-- CART ITEMS -->
+
+    <section
+        class="cart-items"
+        id="cartItems"
+    ></section>
 
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <!-- SUMMARY -->
+
+    <section
+        class="cart-summary"
+        id="cartSummary"
+    >
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="subtotal">
+                ₹0
+            </strong>
+
+        </div>
 
 
-  <script src="script.js"></script>
+        <div class="summary-row">
 
-  <!-- PAGE-SPECIFIC: render the full cart, quantities, subtotal, total -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
+            <span>
+                Delivery
+            </span>
 
-      const container = document.getElementById("cartContainer");
-      if (!container || !window.VOLTRIX) return;
+            <strong>
+                ₹0
+            </strong>
 
-      const DELIVERY_FEE = 49;
-      const FREE_DELIVERY_THRESHOLD = 999;
+        </div>
 
-      function render() {
-        const cart = window.VOLTRIX.getCart();
 
-        const items = cart
-          .map(entry => {
-            const product = window.VOLTRIX.getProduct(entry.id);
-            return product ? { product, quantity: entry.quantity } : null;
-          })
-          .filter(Boolean);
+        <div class="summary-divider"></div>
 
-        if (items.length === 0) {
-          container.innerHTML = `
-            <div class="cart-empty">
-              <h2>Your cart is empty</h2>
-              <p>Looks like you haven't added anything yet.</p>
-              <a href="index.html" class="primary-button">CONTINUE SHOPPING →</a>
-            </div>
-          `;
-          return;
+
+        <div class="summary-total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            id="checkoutBtn"
+            type="button"
+        >
+
+            CHECKOUT
+
+        </button>
+
+
+        <a
+            href="index.html#products"
+            class="continue-shopping"
+        >
+
+            ← CONTINUE SHOPPING
+
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+    <a
+        href="index.html"
+        class="bottom-link"
+    >
+
+        <div class="bottom-icon">
+
+            <img
+                src="assets/icons/home.jpg"
+                alt="Home"
+            >
+
+        </div>
+
+        <span>
+            HOME
+        </span>
+
+    </a>
+
+
+    <a
+        href="index.html#categories"
+        class="bottom-link"
+    >
+
+        <div class="bottom-icon">
+
+            <img
+                src="assets/icons/category.jpg"
+                alt="Category"
+            >
+
+        </div>
+
+        <span>
+            CATEGORY
+        </span>
+
+    </a>
+
+
+    <a
+        href="cart.html"
+        class="bottom-link active"
+    >
+
+        <div class="bottom-icon">
+
+            <img
+                src="assets/icons/cart.jpg"
+                alt="Cart"
+            >
+
+        </div>
+
+        <span>
+            CART
+        </span>
+
+    </a>
+
+
+    <a
+        href="account.html"
+        class="bottom-link"
+    >
+
+        <div class="bottom-icon">
+
+            <img
+                src="assets/icons/account.jpg"
+                alt="Account"
+            >
+
+        </div>
+
+        <span>
+            ACCOUNT
+        </span>
+
+    </a>
+
+</nav>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var cartItems = document.getElementById("cartItems");
+    var emptyCart = document.getElementById("emptyCart");
+    var cartSummary = document.getElementById("cartSummary");
+
+    var subtotalElement = document.getElementById("subtotal");
+    var totalElement = document.getElementById("total");
+
+    var checkoutBtn = document.getElementById("checkoutBtn");
+
+
+    /*
+     * Product database.
+     * We will expand this later when we create
+     * the individual category/product files.
+     */
+
+    var products = {
+
+        "gaming-001": {
+            name: "Premium Gaming Product",
+            price: 999,
+            oldPrice: 1499,
+            image: "assets/products/gaming/gaming-001.jpg"
+        },
+
+        "outfit-001": {
+            name: "Premium Outfit",
+            price: 999,
+            oldPrice: 1499,
+            image: "assets/products/outfit/outfit-001.jpg"
+        },
+
+        "looksmaxing-001": {
+            name: "Premium Care Product",
+            price: 999,
+            oldPrice: 1499,
+            image: "assets/products/looksmaxing/looksmaxing-001.jpg"
+        },
+
+        "mobiles-001": {
+            name: "Smart Mobile Product",
+            price: 999,
+            oldPrice: 1499,
+            image: "assets/products/mobiles/mobiles-001.jpg"
         }
 
-        const subtotal = items.reduce(
-          (sum, item) => sum + item.product.price * item.quantity,
-          0
+    };
+
+
+    function getCart() {
+
+        try {
+
+            var saved =
+                localStorage.getItem("voltrixCart");
+
+            if (!saved) {
+                return [];
+            }
+
+            var cart =
+                JSON.parse(saved);
+
+            return Array.isArray(cart)
+                ? cart
+                : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            "voltrixCart",
+            JSON.stringify(cart)
         );
 
-        const delivery = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_FEE;
-        const total = subtotal + delivery;
+    }
 
-        const itemsHTML = items.map(item => {
-          const placeholder = item.product.name
-            .split(" ")
-            .map(w => w.charAt(0))
-            .slice(0, 2)
-            .join("");
 
-          return `
-            <div class="cart-item" data-id="${item.product.id}">
+    function formatPrice(price) {
 
-              <a href="product.html?id=${item.product.id}" class="cart-item-image">${placeholder}</a>
+        return "₹" +
+            Number(price).toLocaleString("en-IN");
 
-              <div class="cart-item-info">
-                <span class="product-category">${item.product.category.toUpperCase()}</span>
-                <a href="product.html?id=${item.product.id}"><h3>${item.product.name}</h3></a>
-                <div class="cart-item-price">₹${item.product.price.toLocaleString("en-IN")}</div>
-              </div>
+    }
 
-              <div class="cart-item-controls">
-                <div class="cart-qty-control">
-                  <button type="button" class="qty-minus" aria-label="Decrease quantity">−</button>
-                  <span>${item.quantity}</span>
-                  <button type="button" class="qty-plus" aria-label="Increase quantity">+</button>
+
+    function renderCart() {
+
+        var cart = getCart();
+
+        cartItems.innerHTML = "";
+
+
+        if (cart.length === 0) {
+
+            emptyCart.style.display = "block";
+            cartSummary.style.display = "none";
+
+            return;
+
+        }
+
+
+        emptyCart.style.display = "none";
+        cartSummary.style.display = "block";
+
+
+        var subtotal = 0;
+
+
+        cart.forEach(function (item) {
+
+            var product =
+                products[item.id];
+
+
+            if (!product) {
+                return;
+            }
+
+
+            var quantity =
+                Number(item.quantity) || 1;
+
+
+            subtotal +=
+                product.price * quantity;
+
+
+            var card =
+                document.createElement("article");
+
+            card.className =
+                "cart-item";
+
+
+            card.innerHTML = `
+
+                <a
+                    href="pages/product-${getProductNumber(item.id)}.html"
+                    class="cart-image"
+                >
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                        onerror="this.style.display='none'"
+                    >
+
+                    <span>
+                        IMAGE
+                    </span>
+
+                </a>
+
+
+                <div class="cart-details">
+
+                    <h2>
+                        ${product.name}
+                    </h2>
+
+                    <div>
+
+                        <span class="cart-price">
+                            ${formatPrice(product.price)}
+                        </span>
+
+                        <del class="cart-old-price">
+                            ${formatPrice(product.oldPrice)}
+                        </del>
+
+                    </div>
+
+
+                    <div class="quantity-row">
+
+                        <div class="quantity-box">
+
+                            <button
+                                type="button"
+                                class="minus-btn"
+                                data-id="${item.id}"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${quantity}
+                            </span>
+
+                            <button
+                                type="button"
+                                class="plus-btn"
+                                data-id="${item.id}"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                            data-id="${item.id}"
+                        >
+                            REMOVE
+                        </button>
+
+                    </div>
+
                 </div>
-                <button type="button" class="cart-remove-btn">Remove</button>
-              </div>
 
-            </div>
-          `;
-        }).join("");
+            `;
 
-        container.innerHTML = `
-          <div class="cart-layout">
 
-            <div class="cart-items">${itemsHTML}</div>
+            cartItems.appendChild(card);
 
-            <div class="cart-summary">
-              <h2>Order Summary</h2>
-
-              <div class="cart-summary-row">
-                <span>Subtotal</span>
-                <span>₹${subtotal.toLocaleString("en-IN")}</span>
-              </div>
-
-              <div class="cart-summary-row">
-                <span>Delivery</span>
-                <span>${delivery === 0 ? "FREE" : "₹" + delivery}</span>
-              </div>
-
-              ${delivery > 0
-                ? `<div class="cart-summary-row"><span></span><span style="color:var(--emerald); font-size:11px;">Free delivery on orders over ₹${FREE_DELIVERY_THRESHOLD}</span></div>`
-                : ""
-              }
-
-              <div class="cart-summary-row total">
-                <span>Total</span>
-                <span>₹${total.toLocaleString("en-IN")}</span>
-              </div>
-
-              <button type="button" class="primary-button" id="checkoutBtn">CHECKOUT →</button>
-            </div>
-
-          </div>
-        `;
-
-        // Wire up quantity + remove controls
-        container.querySelectorAll(".cart-item").forEach(row => {
-          const id = Number(row.dataset.id);
-
-          row.querySelector(".qty-plus").addEventListener("click", () => {
-            const cart = window.VOLTRIX.getCart();
-            const item = cart.find(i => i.id === id);
-            if (item) {
-              window.VOLTRIX.updateCartQuantity(id, item.quantity + 1);
-              render();
-            }
-          });
-
-          row.querySelector(".qty-minus").addEventListener("click", () => {
-            const cart = window.VOLTRIX.getCart();
-            const item = cart.find(i => i.id === id);
-            if (item) {
-              if (item.quantity <= 1) {
-                window.VOLTRIX.removeFromCart(id);
-              } else {
-                window.VOLTRIX.updateCartQuantity(id, item.quantity - 1);
-              }
-              render();
-            }
-          });
-
-          row.querySelector(".cart-remove-btn").addEventListener("click", () => {
-            window.VOLTRIX.removeFromCart(id);
-            window.VOLTRIX.showToast("Removed from cart");
-            render();
-          });
         });
 
-        const checkoutBtn = document.getElementById("checkoutBtn");
-        if (checkoutBtn) {
-          checkoutBtn.addEventListener("click", () => {
-            window.VOLTRIX.showToast("Checkout isn't connected to payments yet ⚡");
-          });
+
+        subtotalElement.textContent =
+            formatPrice(subtotal);
+
+        totalElement.textContent =
+            formatPrice(subtotal);
+
+
+        attachCartEvents();
+
+    }
+
+
+    function getProductNumber(id) {
+
+        if (id === "gaming-001") {
+            return "001";
         }
-      }
 
-      render();
+        if (id === "outfit-001") {
+            return "002";
+        }
 
-    });
-  </script>
+        if (id === "looksmaxing-001") {
+            return "003";
+        }
+
+        if (id === "mobiles-001") {
+            return "004";
+        }
+
+        return "001";
+
+    }
+
+
+    function attachCartEvents() {
+
+        var minusButtons =
+            document.querySelectorAll(".minus-btn");
+
+        var plusButtons =
+            document.querySelectorAll(".plus-btn");
+
+        var removeButtons =
+            document.querySelectorAll(".remove-btn");
+
+
+        minusButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    changeQuantity(
+                        button.dataset.id,
+                        -1
+                    );
+
+                }
+            );
+
+        });
+
+
+        plusButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    changeQuantity(
+                        button.dataset.id,
+                        1
+                    );
+
+                }
+            );
+
+        });
+
+
+        removeButtons.forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    removeProduct(
+                        button.dataset.id
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+    function changeQuantity(id, amount) {
+
+        var cart = getCart();
+
+
+        var item =
+            cart.find(function (product) {
+
+                return product.id === id;
+
+            });
+
+
+        if (!item) {
+            return;
+        }
+
+
+        item.quantity += amount;
+
+
+        if (item.quantity < 1) {
+            item.quantity = 1;
+        }
+
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    function removeProduct(id) {
+
+        var cart = getCart();
+
+
+        cart =
+            cart.filter(function (item) {
+
+                return item.id !== id;
+
+            });
+
+
+        saveCart(cart);
+
+        renderCart();
+
+    }
+
+
+    checkoutBtn.addEventListener(
+        "click",
+        function () {
+
+            if (getCart().length === 0) {
+                return;
+            }
+
+            window.location.href =
+                "checkout.html";
+
+        }
+    );
+
+
+    renderCart();
+
+});
+
+</script>
+
 
 </body>
+
 </html>
